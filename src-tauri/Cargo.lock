@@ -2183,7 +2183,7 @@ dependencies = [
 
 [[package]]
 name = "pdfcraft-desktop"
-version = "0.1.0"
+version = "1.0.0-tauri"
 dependencies = [
  "axum",
  "http",
