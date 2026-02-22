@@ -293,8 +293,52 @@ docker compose down
 - `npm run dev`: Starts the development server with Turbopack. Automatically runs `predev` to decompress LibreOffice WASM files.
 - `npm run build`: Builds the application for production. Automatically runs `postbuild` to decompress WASM files in `out/`.
 - `npm run start`: Starts the production server.
+- `npm run desktop:prep`: Builds the static frontend export (`out/`) for desktop packaging.
+- `npm run desktop:dev`: Builds `out/` and runs the Tauri desktop wrapper.
+- `npm run desktop:build`: Builds native desktop binaries/installers with Tauri.
 - `npm run lint`: Lints the code using ESLint.
 - `npm run test`: Runs tests using Vitest.
+
+## 🖥️ Desktop App (Tauri)
+
+PDFCraft can run as a local desktop app with a native window and real process shutdown behavior.
+
+### How it works
+
+- Tauri launches a local embedded HTTP server (bound to `127.0.0.1` on a random port) and serves the static `out/` build.
+- The desktop window loads from that localhost URL, preserving all existing UI/features.
+- Closing the window exits the app and shuts down the embedded server at the same time.
+- Required cross-origin isolation headers for LibreOffice WASM (`COOP`/`COEP`/`CORP`) are applied by the embedded server.
+
+### Prerequisites
+
+- Node.js 18.17+
+- Rust toolchain (`rustup`)
+- Platform system dependencies required by Tauri:
+  - macOS: Xcode Command Line Tools
+  - Linux: WebKitGTK and related build deps
+  - Windows: Microsoft C++ Build Tools
+
+### Run locally as a desktop app
+
+```bash
+npm install
+npm run desktop:dev
+```
+
+### Build desktop binaries/installers
+
+```bash
+npm run desktop:build
+```
+
+`desktop:build` produces bundles for the current OS. To build all three platforms:
+
+- macOS: run on macOS
+- Windows: run on Windows
+- Linux: run on Linux
+
+You can also use CI matrix builds in `.github/workflows/desktop-build.yml` (macOS + Windows + Linux).
 
 ## 🚀 Production Deployment Guide
 

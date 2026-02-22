@@ -9,6 +9,7 @@ out
 build
 !public/pdfjs-annotation-viewer/build
 dist
+src-tauri/target
 
 # Testing
 coverage
@@ -68,5 +69,4 @@ comparisons.txt
 # LibreOffice WASM decompressed files (large, generated from .gz)
 public/libreoffice-wasm/soffice.wasm
 public/libreoffice-wasm/soffice.data
-
 

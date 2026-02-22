@@ -1,0 +1,17 @@
+[package]
+name = "pdfcraft-desktop"
+version = "0.1.0"
+description = "PDFCraft desktop wrapper"
+authors = ["PDFCraft Team"]
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+axum = "0.7"
+http = "1"
+percent-encoding = "2"
+tauri = { version = "2", features = [] }
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "net", "sync", "time"] }
+url = "2"
