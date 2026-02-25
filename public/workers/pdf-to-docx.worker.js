@@ -61,7 +61,7 @@ async function init() {
   await install(basePath + 'typing_extensions-4.12.2-py3-none-any.whl');
   // Packaging is missing locally but required by fonttools. Try fetching from CDN.
   try {
-    await install('./pymupdf-wasm/packaging-24.1-py3-none-any.whl');
+    await install(basePath + 'packaging-24.1-py3-none-any.whl');
   } catch (e) {
     console.warn("Failed to load packaging from CDN, fonttools might fail:", e);
   }
@@ -82,6 +82,27 @@ async function init() {
   pyodide.runPython(`
 import os
 import sys
+import fitz  # PyMuPDF
+
+# Monkey-patch Pixmap.tobytes to handle unsupported colorspaces (e.g. CMYK)
+# When pdf2docx extracts images, it calls image.tobytes() which fails for
+# non-RGB colorspaces with "ValueError: unsupported colorspace for 'png'"
+_original_tobytes = fitz.Pixmap.tobytes
+
+def _patched_tobytes(self, output="png", *args, **kwargs):
+    try:
+        return _original_tobytes(self, output, *args, **kwargs)
+    except ValueError as e:
+        if "unsupported colorspace" in str(e):
+            # Convert to RGB colorspace first, then encode
+            rgb_pix = fitz.Pixmap(fitz.csRGB, self)
+            result = _original_tobytes(rgb_pix, output, *args, **kwargs)
+            rgb_pix = None
+            return result
+        raise
+
+fitz.Pixmap.tobytes = _patched_tobytes
+
 from pdf2docx import Converter
 
 def convert_pdf_to_docx(input_obj):

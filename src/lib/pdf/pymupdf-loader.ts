@@ -141,13 +141,18 @@ base64.b64encode(docx_data).decode('ascii')
           // Options are available for future use (level, embedFonts, flattenTransparency)
           const _options = options;
 
-          pyodide.FS.writeFile('/input.pdf', pdfData);
+          // Use unique file names to avoid race conditions during concurrent processing
+          const uid = `${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+          const inputPath = `/input_pdfa_${uid}.pdf`;
+          const outputPath = `/output_pdfa_${uid}.pdf`;
+
+          pyodide.FS.writeFile(inputPath, pdfData);
 
           const result = await pyodide.runPythonAsync(`
 import pymupdf
 import base64
 
-doc = pymupdf.open("/input.pdf")
+doc = pymupdf.open("${inputPath}")
 
 # Attempt to make it PDF/A compliant (Best Effort)
 # In a real scenario, we would need to attach an ICC profile and valid OutputIntent.
@@ -159,18 +164,18 @@ save_options = {
     "deflate": True,
 }
 
-doc.save("/output.pdf", **save_options)
+doc.save("${outputPath}", **save_options)
 doc.close()
 
-with open("/output.pdf", "rb") as f:
+with open("${outputPath}", "rb") as f:
     pdf_data = f.read()
 
 base64.b64encode(pdf_data).decode('ascii')
 `);
 
           try {
-            pyodide.FS.unlink('/input.pdf');
-            pyodide.FS.unlink('/output.pdf');
+            pyodide.FS.unlink(inputPath);
+            pyodide.FS.unlink(outputPath);
           } catch {
             // Ignore cleanup errors
           }
