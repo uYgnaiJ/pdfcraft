@@ -2049,7 +2049,7 @@
     },
     "rasterizePdf": {
       "uploadLabel": "Carica file PDF",
-      "uploadDescription": "Trascina e rilascia un file PDF da convertire in immagini.",
+      "uploadDescription": "Trascina e rilascia un file PDF per rasterizzarlo in immagini o un nuovo PDF.",
       "optionsTitle": "Opzioni di output",
       "dpiLabel": "Risoluzione (DPI)",
       "formatLabel": "Formato di output",
@@ -2057,8 +2057,8 @@
       "pageRangeLabel": "Intervallo di pagine (opzionale)",
       "pageRangeDesc": "Lascia vuoto per convertire tutte le pagine.",
       "bgColorLabel": "Colore di sfondo",
-      "convertButton": "Converti in immagini",
-      "successMessage": "Immagini create con successo! Clicca il pulsante di download per salvare."
+      "convertButton": "Rasterizza",
+      "successMessage": "Rasterizzazione completata! Clicca il pulsante di download per salvare il file."
     },
     "emailToPdf": {
       "uploadLabel": "Carica Email File",

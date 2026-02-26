@@ -88,7 +88,7 @@ export function RasterizePDFTool({ className = '' }: RasterizePDFToolProps) {
 
             if (output.success && output.result) {
                 setResultBlob(output.result as Blob);
-                setResultFilename(output.filename || 'images.zip');
+                setResultFilename(output.filename || (format === 'pdf' ? 'rasterized.pdf' : 'images.zip'));
             } else {
                 setError(output.error?.message || 'Failed to rasterize PDF.');
             }
@@ -196,8 +196,8 @@ export function RasterizePDFTool({ className = '' }: RasterizePDFToolProps) {
                             <label className="block text-sm font-medium text-[hsl(var(--color-foreground))] mb-2">
                                 {tTools('rasterizePdf.formatLabel') || 'Output Format'}
                             </label>
-                            <div className="grid grid-cols-3 gap-2">
-                                {(['png', 'jpeg', 'webp'] as RasterizeFormat[]).map((fmt) => (
+                            <div className="grid grid-cols-4 gap-2">
+                                {(['png', 'jpeg', 'webp', 'pdf'] as RasterizeFormat[]).map((fmt) => (
                                     <button
                                         key={fmt}
                                         type="button"
@@ -220,7 +220,7 @@ export function RasterizePDFTool({ className = '' }: RasterizePDFToolProps) {
                         </div>
 
                         {/* Quality (for JPEG/WebP) */}
-                        {(format === 'jpeg' || format === 'webp') && (
+                        {(format === 'jpeg' || format === 'webp' || format === 'pdf') && (
                             <div>
                                 <label className="block text-sm font-medium text-[hsl(var(--color-foreground))] mb-2">
                                     {tTools('rasterizePdf.qualityLabel') || 'Quality'}: {quality}%

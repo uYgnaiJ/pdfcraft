@@ -152,10 +152,17 @@ export class PDFToDocxProcessor extends BasePDFProcessor {
                 const msgId = 'convert-' + Date.now();
 
                 const handleMessage = (event: MessageEvent) => {
-                    const { type, id, result, error, message } = event.data;
+                    const { type, id, result, error, message, percent } = event.data;
 
                     if (type === 'status') {
                         this.updateProgress(this.progress, message);
+                        return;
+                    }
+
+                    if (type === 'progress') {
+                        // Per-page progress from Python logging handler
+                        const progressValue = typeof percent === 'number' ? percent : this.progress;
+                        this.updateProgress(progressValue, message);
                         return;
                     }
 

@@ -15,30 +15,16 @@ async function init() {
   // Initialize Pyodide
   pyodide = await loadPyodide({
     indexURL: '/pymupdf-wasm/',
-    fullStdLib: false // We use our own wheels mostly
+    fullStdLib: false
   });
 
   self.postMessage({ type: 'status', message: 'Installing dependencies...' });
 
-  // We will use pyodide.loadPackage directly instead of micropip
-  // because micropip seems to be missing in the local distribution.
-
-  // Helper to install checks
   const install = async (url) => {
-    // self.postMessage({ type: 'status', message: `Installing ${url.split('/').pop()}...` });
     await pyodide.loadPackage(url);
   };
 
-  // Install wheels in order
   const basePath = '/pymupdf-wasm/';
-
-  // We need to install dependencies.
-  // Note: some packages might be able to be loaded from pyodide standard lib if available (like numpy), 
-  // but we have wheels provided in the folder, best to use them to match versions if possible.
-  // However, `numpy` wheel is large.
-
-  // Install Core Wheels
-  // Order matters for some
 
   // Mock missing non-critical dependencies
   pyodide.runPython(`
@@ -59,34 +45,28 @@ async function init() {
 
   await install(basePath + 'numpy-2.2.5-cp313-cp313-pyodide_2025_0_wasm32.whl');
   await install(basePath + 'typing_extensions-4.12.2-py3-none-any.whl');
-  // Packaging is missing locally but required by fonttools. Try fetching from CDN.
   try {
     await install(basePath + 'packaging-24.1-py3-none-any.whl');
   } catch (e) {
-    console.warn("Failed to load packaging from CDN, fonttools might fail:", e);
+    console.warn("Failed to load packaging, fonttools might fail:", e);
   }
   await install(basePath + 'fonttools-4.56.0-py3-none-any.whl');
   await install(basePath + 'lxml-5.4.0-cp313-cp313-pyodide_2025_0_wasm32.whl');
   await install(basePath + 'pymupdf-1.26.3-cp313-none-pyodide_2025_0_wasm32.whl');
   await install(basePath + 'python_docx-1.2.0-py3-none-any.whl');
-  // opencv is huge, only install if pdf2docx strictly requires it (it usually does for image extraction)
   await install(basePath + 'opencv_python-4.11.0.86-cp313-cp313-pyodide_2025_0_wasm32.whl');
 
-  // Finally pdf2docx
   self.postMessage({ type: 'status', message: 'Installing pdf2docx...' });
   await install(basePath + 'pdf2docx-0.5.8-py3-none-any.whl');
 
-  // Define the python processing script
-  self.postMessage({ type: 'status', message: 'Initializing converter script...' });
+  self.postMessage({ type: 'status', message: 'Initializing converter...' });
 
+  // Define Python helper functions
   pyodide.runPython(`
 import os
-import sys
 import fitz  # PyMuPDF
 
 # Monkey-patch Pixmap.tobytes to handle unsupported colorspaces (e.g. CMYK)
-# When pdf2docx extracts images, it calls image.tobytes() which fails for
-# non-RGB colorspaces with "ValueError: unsupported colorspace for 'png'"
 _original_tobytes = fitz.Pixmap.tobytes
 
 def _patched_tobytes(self, output="png", *args, **kwargs):
@@ -94,7 +74,6 @@ def _patched_tobytes(self, output="png", *args, **kwargs):
         return _original_tobytes(self, output, *args, **kwargs)
     except ValueError as e:
         if "unsupported colorspace" in str(e):
-            # Convert to RGB colorspace first, then encode
             rgb_pix = fitz.Pixmap(fitz.csRGB, self)
             result = _original_tobytes(rgb_pix, output, *args, **kwargs)
             rgb_pix = None
@@ -105,35 +84,42 @@ fitz.Pixmap.tobytes = _patched_tobytes
 
 from pdf2docx import Converter
 
-def convert_pdf_to_docx(input_obj):
-    # Convert JsProxy (Uint8Array) to bytes-like object
-    # to_py() converts JS TypedArray to Python memoryview
+def pdf_write_input(input_obj):
+    """Write PDF bytes to virtual filesystem."""
     if hasattr(input_obj, "to_py"):
         input_bytes = input_obj.to_py()
     else:
         input_bytes = input_obj
-
-    # Write input PDF
+    
     with open("input.pdf", "wb") as f:
         f.write(input_bytes)
-        
-    # Convert
+
+def pdf_convert():
+    """Convert PDF to DOCX with optimized settings. Returns page count."""
     cv = Converter("input.pdf")
-    # Convert to docx
-    # start=0, end=None means all pages
-    cv.convert("output.docx", start=0, end=None)
+    # Get page count from Converter's internal fitz doc (no extra open)
+    page_count = len(cv.fitz_doc)
+    cv.convert("output.docx", start=0, end=None,
+        clip_image_res_ratio=1.0,
+        min_svg_gap_dx=5.0,
+        min_svg_gap_dy=5.0,
+        min_svg_w=2.0,
+        min_svg_h=2.0,
+        parse_stream_table=False,
+    )
     cv.close()
-    
-    # Read output
+    return page_count
+
+def pdf_read_result():
+    """Read the DOCX result and clean up."""
     with open("output.docx", "rb") as f:
         docx_bytes = f.read()
-        
-    # Cleanup
+    
     if os.path.exists("input.pdf"):
         os.remove("input.pdf")
     if os.path.exists("output.docx"):
         os.remove("output.docx")
-        
+    
     return docx_bytes
   `);
 
@@ -157,22 +143,46 @@ self.onmessage = async (event) => {
         await initPromise;
       }
 
-      const { file } = data; // File object
+      const { file } = data;
       const arrayBuffer = await file.arrayBuffer();
       const inputBytes = new Uint8Array(arrayBuffer);
 
-      self.postMessage({ type: 'status', message: 'Processing PDF...' });
+      // Step 1: Write PDF to virtual filesystem
+      self.postMessage({ type: 'progress', message: 'Preparing PDF...', percent: 5 });
+      const writeInput = pyodide.globals.get('pdf_write_input');
+      writeInput(inputBytes);
 
-      // Call Python function
-      const convertFunc = pyodide.globals.get('convert_pdf_to_docx');
+      self.postMessage({
+        type: 'progress',
+        message: 'Converting to DOCX...',
+        percent: 10
+      });
 
-      // Convert takes bytes, returns bytes (as PyProxy or Uint8Array)
-      // We pass the TypedArray directly which Pyodide handles as bytes
-      const resultProxy = convertFunc(inputBytes);
+      // Step 2: Convert PDF to DOCX (returns page count)
+      // Using runPythonAsync so the progress message above is flushed to main thread
+      const totalPages = await pyodide.runPythonAsync('pdf_convert()');
+
+      self.postMessage({
+        type: 'progress',
+        message: `Converted ${totalPages} pages successfully`,
+        percent: 85
+      });
+
+      self.postMessage({
+        type: 'progress',
+        message: 'Reading result...',
+        percent: 90
+      });
+
+      // Step 3: Read result
+      const readResult = pyodide.globals.get('pdf_read_result');
+      const resultProxy = readResult();
       const resultBytes = resultProxy.toJs();
       resultProxy.destroy();
 
-      const resultBlob = new Blob([resultBytes], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
+      const resultBlob = new Blob([resultBytes], {
+        type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+      });
 
       self.postMessage({
         id,

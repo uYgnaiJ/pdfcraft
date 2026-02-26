@@ -2014,7 +2014,7 @@
     },
     "rasterizePdf": {
       "uploadLabel": "PDF-Datei hochladen",
-      "uploadDescription": "Ziehen Sie eine PDF-Datei hierher, um sie in Bilder umzuwandeln.",
+      "uploadDescription": "Ziehen Sie eine PDF-Datei hierher, um sie in Bilder oder ein neues PDF zu rastern.",
       "optionsTitle": "Ausgabeoptionen",
       "dpiLabel": "Auflösung (DPI)",
       "formatLabel": "Ausgabeformat",
@@ -2022,8 +2022,8 @@
       "pageRangeLabel": "Seitenbereich (optional)",
       "pageRangeDesc": "Leer lassen, um alle Seiten zu konvertieren.",
       "bgColorLabel": "Hintergrundfarbe",
-      "convertButton": "In Bilder konvertieren",
-      "successMessage": "Bilder erfolgreich erstellt! Klicken Sie auf Download zum Speichern."
+      "convertButton": "Rastern",
+      "successMessage": "Rasterung abgeschlossen! Klicken Sie auf Download zum Speichern."
     },
     "markdownToPdf": {
       "uploadLabel": "Markdown-Datei hochladen",

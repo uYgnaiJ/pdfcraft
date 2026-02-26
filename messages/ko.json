@@ -2014,7 +2014,7 @@
     },
     "rasterizePdf": {
       "uploadLabel": "PDF 파일 업로드",
-      "uploadDescription": "이미지로 변환할 PDF 파일을 드래그 앤 드롭하세요.",
+      "uploadDescription": "PDF 파일을 드래그 앤 드롭하여 이미지 또는 새 PDF로 래스터화하세요.",
       "optionsTitle": "출력 옵션",
       "dpiLabel": "해상도 (DPI)",
       "formatLabel": "출력 형식",
@@ -2022,8 +2022,8 @@
       "pageRangeLabel": "페이지 범위 (선택 사항)",
       "pageRangeDesc": "모든 페이지를 변환하려면 비워 두세요.",
       "bgColorLabel": "배경색",
-      "convertButton": "이미지로 변환",
-      "successMessage": "이미지가 성공적으로 생성되었습니다! 저장하려면 다운로드를 클릭하세요."
+      "convertButton": "래스터화",
+      "successMessage": "래스터화 완료! 파일을 저장하려면 다운로드를 클릭하세요."
     },
     "markdownToPdf": {
       "uploadLabel": "Markdown 파일 업로드",

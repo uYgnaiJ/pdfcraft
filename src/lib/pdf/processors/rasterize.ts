@@ -17,7 +17,7 @@ import { loadPdfjs } from '../loader';
 /**
  * Output image format
  */
-export type RasterizeFormat = 'png' | 'jpeg' | 'webp';
+export type RasterizeFormat = 'png' | 'jpeg' | 'webp' | 'pdf';
 
 /**
  * Rasterize options interface
@@ -186,10 +186,99 @@ export class RasterizePDFProcessor extends BasePDFProcessor {
             const scale = rasterizeOptions.dpi / 72;
 
             // Render each page
+            const baseName = file.name.replace(/\.pdf$/i, '');
+
+            // PDF output mode: render pages to images, then assemble into a new rasterized PDF
+            if (rasterizeOptions.format === 'pdf') {
+                const { jsPDF } = await import('jspdf');
+                let pdfOutput: InstanceType<typeof jsPDF> | null = null;
+
+                for (let i = 0; i < pagesToRender.length; i++) {
+                    if (this.checkCancelled()) {
+                        return this.createErrorOutput(
+                            PDFErrorCode.PROCESSING_CANCELLED,
+                            'Processing was cancelled.'
+                        );
+                    }
+
+                    const pageNum = pagesToRender[i];
+                    const progress = 15 + ((i / pagesToRender.length) * 75);
+                    this.updateProgress(progress, `Rendering page ${pageNum} of ${totalPages}...`);
+
+                    try {
+                        const page = await pdfDoc.getPage(pageNum);
+                        const viewport = page.getViewport({ scale });
+
+                        // Create canvas
+                        const canvas = document.createElement('canvas');
+                        canvas.width = viewport.width;
+                        canvas.height = viewport.height;
+                        const ctx = canvas.getContext('2d')!;
+
+                        // Fill background
+                        ctx.fillStyle = rasterizeOptions.backgroundColor;
+                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                        // Render page
+                        await page.render({
+                            canvasContext: ctx,
+                            viewport,
+                        }).promise;
+
+                        // Get image data URL
+                        const imgData = canvas.toDataURL('image/jpeg', rasterizeOptions.quality);
+
+                        // Page dimensions in mm (convert from pixels at given DPI)
+                        const widthMm = (viewport.width / rasterizeOptions.dpi) * 25.4;
+                        const heightMm = (viewport.height / rasterizeOptions.dpi) * 25.4;
+                        const orientation = widthMm > heightMm ? 'landscape' : 'portrait';
+
+                        if (i === 0) {
+                            // Create jsPDF with first page dimensions
+                            pdfOutput = new jsPDF({
+                                orientation,
+                                unit: 'mm',
+                                format: [widthMm, heightMm],
+                                compress: true,
+                            });
+                        } else {
+                            // Add new page for subsequent pages
+                            pdfOutput!.addPage([widthMm, heightMm], orientation);
+                        }
+
+                        // Add the rasterized image to fill the entire page
+                        pdfOutput!.addImage(imgData, 'JPEG', 0, 0, widthMm, heightMm, undefined, 'FAST');
+                    } catch (pageError) {
+                        console.warn(`Failed to render page ${pageNum}:`, pageError);
+                    }
+                }
+
+                if (!pdfOutput) {
+                    return this.createErrorOutput(
+                        PDFErrorCode.PROCESSING_FAILED,
+                        'Failed to render any pages.',
+                        'Unknown rendering error'
+                    );
+                }
+
+                this.updateProgress(92, 'Generating PDF...');
+
+                const pdfBlob = pdfOutput.output('blob');
+
+                this.updateProgress(100, 'Complete!');
+
+                return this.createSuccessOutput(pdfBlob, `${baseName}_rasterized.pdf`, {
+                    totalPages,
+                    renderedPages: pagesToRender.length,
+                    dpi: rasterizeOptions.dpi,
+                    format: 'pdf',
+                });
+            }
+
+            // Image output mode (PNG / JPEG / WebP)
             const images: { pageNum: number; blob: Blob; filename: string }[] = [];
             const mimeType = getMimeType(rasterizeOptions.format);
             const extension = getFileExtension(rasterizeOptions.format);
-            const baseName = file.name.replace(/\.pdf$/i, '');
 
             for (let i = 0; i < pagesToRender.length; i++) {
                 if (this.checkCancelled()) {

@@ -2014,7 +2014,7 @@
     },
     "rasterizePdf": {
       "uploadLabel": "Carregar arquivo PDF",
-      "uploadDescription": "Arraste e solte um arquivo PDF para converter em imagens.",
+      "uploadDescription": "Arraste e solte um arquivo PDF para rasterizar em imagens ou um novo PDF.",
       "optionsTitle": "Opções de saída",
       "dpiLabel": "Resolução (DPI)",
       "formatLabel": "Formato de saída",
@@ -2022,8 +2022,8 @@
       "pageRangeLabel": "Intervalo de páginas (opcional)",
       "pageRangeDesc": "Deixe vazio para converter todas as páginas.",
       "bgColorLabel": "Cor de fundo",
-      "convertButton": "Converter em imagens",
-      "successMessage": "Imagens criadas com sucesso! Clique em baixar para salvar."
+      "convertButton": "Rasterizar",
+      "successMessage": "Rasterização concluída! Clique em baixar para salvar seu arquivo."
     },
     "markdownToPdf": {
       "uploadLabel": "Carregar arquivo Markdown",

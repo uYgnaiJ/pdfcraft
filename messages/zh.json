@@ -2121,7 +2121,7 @@
     },
     "rasterizePdf": {
       "uploadLabel": "上传PDF文件",
-      "uploadDescription": "拖放PDF文件以转换为图片。",
+      "uploadDescription": "拖放PDF文件以栅格化为图片或新的PDF。",
       "optionsTitle": "输出选项",
       "dpiLabel": "分辨率 (DPI)",
       "formatLabel": "输出格式",
@@ -2129,8 +2129,8 @@
       "pageRangeLabel": "页面范围（可选）",
       "pageRangeDesc": "留空转换所有页面。",
       "bgColorLabel": "背景颜色",
-      "convertButton": "转换为图片",
-      "successMessage": "图片创建成功！点击下载保存。"
+      "convertButton": "栅格化",
+      "successMessage": "栅格化完成！点击下载保存文件。"
     },
     "emailToPdf": {
       "uploadLabel": "上传邮件文件",

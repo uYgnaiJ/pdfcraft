@@ -1130,7 +1130,7 @@ export const tools: Tool[] = [
     outputFormat: 'image',
     maxFileSize: DEFAULT_MAX_FILE_SIZE,
     maxFiles: 10,
-    features: ['dpi-control', 'png-jpeg-webp', 'page-range', 'batch-export'],
+    features: ['dpi-control', 'png-jpeg-webp-pdf', 'page-range', 'batch-export'],
     relatedTools: ['pdf-to-jpg', 'pdf-to-png', 'extract-images'],
   },
   {

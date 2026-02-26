@@ -2031,7 +2031,7 @@
     },
     "rasterizePdf": {
       "uploadLabel": "Subir archivo PDF",
-      "uploadDescription": "Arrastre y suelte un archivo PDF para convertirlo en imágenes.",
+      "uploadDescription": "Arrastre y suelte un archivo PDF para rasterizarlo en imágenes o un nuevo PDF.",
       "optionsTitle": "Opciones de salida",
       "dpiLabel": "Resolución (DPI)",
       "formatLabel": "Formato de salida",
@@ -2039,8 +2039,8 @@
       "pageRangeLabel": "Rango de páginas (opcional)",
       "pageRangeDesc": "Deje vacío para convertir todas las páginas.",
       "bgColorLabel": "Color de fondo",
-      "convertButton": "Convertir a imágenes",
-      "successMessage": "¡Imágenes creadas con éxito! Haga clic en descargar para guardar."
+      "convertButton": "Rasterizar",
+      "successMessage": "¡Rasterización completada! Haga clic en descargar para guardar su archivo."
     },
     "emailToPdf": {
       "uploadLabel": "Subir archivo de correo",

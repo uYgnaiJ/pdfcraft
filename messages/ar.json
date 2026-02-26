@@ -1738,7 +1738,7 @@
     },
     "rasterizePdf": {
       "uploadLabel": "رفع ملف PDF",
-      "uploadDescription": "اسحب وأفلت ملف PDF لتحويله إلى صور.",
+      "uploadDescription": "اسحب وأفلت ملف PDF لتحويله إلى صور أو ملف PDF جديد.",
       "optionsTitle": "خيارات المخرجات",
       "dpiLabel": "الدقة (DPI)",
       "formatLabel": "تنسيق المخرجات",
@@ -1746,8 +1746,8 @@
       "pageRangeLabel": "نطاق الصفحات (اختياري)",
       "pageRangeDesc": "اتركه فارغاً لتحويل جميع الصفحات.",
       "bgColorLabel": "لون الخلفية",
-      "convertButton": "تحويل إلى صور",
-      "successMessage": "تم إنشاء الصور بنجاح! انقر على تحميل للحفظ."
+      "convertButton": "تحويل نقطي",
+      "successMessage": "اكتمل التحويل النقطي! انقر على تحميل لحفظ الملف."
     },
     "markdownToPdf": {
       "uploadLabel": "رفع ملف Markdown",
