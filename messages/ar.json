@@ -1862,7 +1862,8 @@
       "marginBottom": "الهامش السفلي",
       "marginLeft": "الهامش الأيسر",
       "marginRight": "الهامش الأيمن",
-      "optionsTitle": "خيارات القص"
+      "optionsTitle": "خيارات القص",
+      "page": "صفحة"
     },
     "repairPdf": {
       "uploadLabel": "تحميل ملفات PDF",

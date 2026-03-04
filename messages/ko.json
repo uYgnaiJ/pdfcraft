@@ -970,7 +970,8 @@
       "marginBottom": "Margin Bottom",
       "marginLeft": "Margin Left",
       "marginRight": "Margin Right",
-      "optionsTitle": "Crop Options"
+      "optionsTitle": "Crop Options",
+      "page": "페이지"
     },
     "organizePdf": {
       "uploadLabel": "PDF 파일 업로드",

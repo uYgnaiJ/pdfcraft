@@ -970,7 +970,8 @@
       "marginBottom": "Margin Bottom",
       "marginLeft": "Margin Left",
       "marginRight": "Margin Right",
-      "optionsTitle": "Crop Options"
+      "optionsTitle": "Crop Options",
+      "page": "Página"
     },
     "organizePdf": {
       "uploadLabel": "Subir archivo PDF",

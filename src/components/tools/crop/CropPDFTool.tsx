@@ -46,6 +46,7 @@ export function CropPDFTool({ className = '' }: CropPDFToolProps) {
   const [applyToAll, setApplyToAll] = useState(false);
   const [currentZoom, setCurrentZoom] = useState(1); // Track actual zoom ratio
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [pageInputValue, setPageInputValue] = useState('1'); // For page jump input
 
   const cropperRef = useRef<ReactCropperElement>(null);
   const cropperContainerRef = useRef<HTMLDivElement>(null);
@@ -169,6 +170,7 @@ export function CropPDFTool({ className = '' }: CropPDFToolProps) {
         pdfDoc,
         crops: {},
       }));
+      setPageInputValue('1');
 
       // Render first page
       renderPage(pdfDoc, 1);
@@ -241,7 +243,42 @@ export function CropPDFTool({ className = '' }: CropPDFToolProps) {
 
     const newPage = state.currentPage + delta;
     if (newPage >= 1 && newPage <= state.numPages) {
+      setPageInputValue(String(newPage));
       await renderPage(state.pdfDoc, newPage);
+    }
+  };
+
+  // Jump to specific page
+  const goToPage = async (pageNum: number) => {
+    if (!state.pdfDoc) return;
+    const targetPage = Math.max(1, Math.min(pageNum, state.numPages));
+    if (targetPage === state.currentPage) {
+      setPageInputValue(String(targetPage));
+      return;
+    }
+    saveCurrentCrop();
+    setPageInputValue(String(targetPage));
+    await renderPage(state.pdfDoc, targetPage);
+  };
+
+  // Handle page input submission
+  const handlePageInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      const num = parseInt(pageInputValue, 10);
+      if (!isNaN(num)) {
+        goToPage(num);
+      } else {
+        setPageInputValue(String(state.currentPage));
+      }
+    }
+  };
+
+  const handlePageInputBlur = () => {
+    const num = parseInt(pageInputValue, 10);
+    if (!isNaN(num)) {
+      goToPage(num);
+    } else {
+      setPageInputValue(String(state.currentPage));
     }
   };
 
@@ -409,7 +446,7 @@ export function CropPDFTool({ className = '' }: CropPDFToolProps) {
                   ready={onCropperReady}
                   viewMode={1}
                   background={false}
-                  autoCropArea={0.8}
+                  autoCropArea={1}
                   zoomOnWheel={false}
                 />
               ) : (
@@ -493,9 +530,19 @@ export function CropPDFTool({ className = '' }: CropPDFToolProps) {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                     </svg>
                   </button>
-                  <span className="text-sm font-medium text-gray-600 min-w-[80px] text-center">
-                    {state.currentPage} / {state.numPages}
-                  </span>
+                  <div className="flex items-center gap-1 text-sm font-medium text-gray-600">
+                    <input
+                      type="text"
+                      value={pageInputValue}
+                      onChange={(e) => setPageInputValue(e.target.value)}
+                      onKeyDown={handlePageInputKeyDown}
+                      onBlur={handlePageInputBlur}
+                      disabled={isProcessing}
+                      className="w-12 text-center border border-gray-300 rounded px-1 py-0.5 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 disabled:opacity-50"
+                      aria-label="Go to page"
+                    />
+                    <span>/ {state.numPages}</span>
+                  </div>
                   <button
                     type="button"
                     onClick={() => changePage(1)}
@@ -518,19 +565,36 @@ export function CropPDFTool({ className = '' }: CropPDFToolProps) {
                   size="sm"
                   onClick={() => changePage(-1)}
                   disabled={state.currentPage <= 1 || isProcessing}
+                  aria-label="Previous page"
                 >
-                  Previous
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
                 </Button>
-                <span className="text-sm font-medium w-24 text-center">
-                  Page {state.currentPage} of {state.numPages}
-                </span>
+                <div className="flex items-center gap-1 text-sm font-medium min-w-[120px] justify-center">
+                  <span>{tTools('cropPdf.page') || 'Page'}</span>
+                  <input
+                    type="text"
+                    value={pageInputValue}
+                    onChange={(e) => setPageInputValue(e.target.value)}
+                    onKeyDown={handlePageInputKeyDown}
+                    onBlur={handlePageInputBlur}
+                    disabled={isProcessing}
+                    className="w-14 text-center border border-gray-300 rounded px-1 py-0.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
+                    aria-label="Go to page"
+                  />
+                  <span>/ {state.numPages}</span>
+                </div>
                 <Button
                   variant="outline"
                   size="sm"
                   onClick={() => changePage(1)}
                   disabled={state.currentPage >= state.numPages || isProcessing}
+                  aria-label="Next page"
                 >
-                  Next
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
                 </Button>
               </div>
 

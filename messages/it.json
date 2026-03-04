@@ -1038,7 +1038,8 @@
       "marginBottom": "Margine inferiore",
       "marginLeft": "Margine sinistro",
       "marginRight": "Margine destro",
-      "optionsTitle": "Opzioni di ritaglio"
+      "optionsTitle": "Opzioni di ritaglio",
+      "page": "Pagina"
     },
     "organizePdf": {
       "uploadLabel": "Carica file PDF",

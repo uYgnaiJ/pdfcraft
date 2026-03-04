@@ -1113,7 +1113,8 @@
       "marginBottom": "下边距",
       "marginLeft": "左边距",
       "marginRight": "右边距",
-      "optionsTitle": "裁剪选项"
+      "optionsTitle": "裁剪选项",
+      "page": "页"
     },
     "organizePdf": {
       "uploadLabel": "上传PDF文件",
