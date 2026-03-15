@@ -47,6 +47,7 @@ export function GridCombineTool({ className = '' }: GridCombineToolProps) {
     const [progressMessage, setProgressMessage] = useState('');
     const [result, setResult] = useState<Blob | null>(null);
     const [error, setError] = useState<string | null>(null);
+    const [errorDetails, setErrorDetails] = useState<string | null>(null);
 
     // Options
     const [gridLayout, setGridLayout] = useState<GridCombineOptions['gridLayout']>('2x2');
@@ -115,6 +116,7 @@ export function GridCombineTool({ className = '' }: GridCombineToolProps) {
 
         setFiles(prev => [...prev, ...uploadedFiles]);
         setError(null);
+        setErrorDetails(null);
         setResult(null);
 
         // Generate thumbnails in background
@@ -152,6 +154,7 @@ export function GridCombineTool({ className = '' }: GridCombineToolProps) {
         setFiles([]);
         setResult(null);
         setError(null);
+        setErrorDetails(null);
         setStatus('idle');
         setProgress(0);
     }, []);
@@ -226,6 +229,7 @@ export function GridCombineTool({ className = '' }: GridCombineToolProps) {
         setStatus('processing');
         setProgress(0);
         setError(null);
+        setErrorDetails(null);
         setResult(null);
 
         const options: Partial<GridCombineOptions> = {
@@ -262,11 +266,15 @@ export function GridCombineTool({ className = '' }: GridCombineToolProps) {
                 setStatus('complete');
             } else {
                 setError(output.error?.message || 'Failed to combine PDF files.');
+                setErrorDetails(output.error?.details || null);
                 setStatus('error');
             }
         } catch (err) {
             if (!cancelledRef.current) {
-                setError(err instanceof Error ? err.message : 'An unexpected error occurred.');
+                const errMsg = err instanceof Error ? err.message : 'An unexpected error occurred.';
+                const errStack = err instanceof Error ? err.stack : undefined;
+                setError(errMsg);
+                setErrorDetails(errStack || null);
                 setStatus('error');
             }
         }
@@ -320,7 +328,15 @@ export function GridCombineTool({ className = '' }: GridCombineToolProps) {
             {/* Error Message */}
             {error && (
                 <div className="p-4 rounded-[var(--radius-md)] bg-red-50 border border-red-200 text-red-700" role="alert">
-                    <p className="text-sm">{error}</p>
+                    <p className="text-sm font-medium">{error}</p>
+                    {errorDetails && (
+                        <details className="mt-2">
+                            <summary className="text-xs cursor-pointer hover:underline text-red-500">
+                                {tTools('gridCombine.showErrorDetails') || 'Show error details'}
+                            </summary>
+                            <pre className="mt-2 p-2 text-xs bg-red-100 rounded overflow-x-auto whitespace-pre-wrap break-all max-h-40 overflow-y-auto">{errorDetails}</pre>
+                        </details>
+                    )}
                 </div>
             )}
 
