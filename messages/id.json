@@ -1,0 +1,1510 @@
+{
+  "metadata": {
+    "home": {
+      "title": "PDFCraft - Alat PDF Profesional",
+      "description": "Gratis, Pribadi & Berbasis Browser. Gabung, edit, dan ubah file PDF secara online tanpa mengunggah ke server."
+    },
+    "tools": {
+      "title": "Semua Alat PDF",
+      "description": "Jelajahi lebih dari 67 alat PDF profesional. Gabungkan, pisahkan, kompres, konversi, edit, dan amankan file PDF Anda secara gratis."
+    },
+    "about": {
+      "title": "Tentang",
+      "description": "Pelajari tentang PDFCraft - toolkit PDF gratis, pribadi, dan kuat. Semua proses terjadi di browser Anda."
+    },
+    "faq": {
+      "title": "Pertanyaan yang Sering Diajukan",
+      "description": "Temukan jawaban untuk pertanyaan umum tentang PDFCraft. Pelajari cara menggunakan alat PDF kami secara efektif."
+    },
+    "privacy": {
+      "title": "Kebijakan Privasi",
+      "description": "Kebijakan privasi PDFCraft. File Anda tidak pernah meninggalkan perangkat Anda - semua proses terjadi secara lokal di browser Anda."
+    },
+    "contact": {
+      "title": "Hubungi Kami",
+      "description": "Hubungi tim PDFCraft. Kami ingin mendengar pendapat Anda."
+    },
+    "keywords": {
+      "pdfTools": "alat PDF",
+      "mergePdf": "gabung PDF",
+      "splitPdf": "pisah PDF",
+      "compressPdf": "kompres PDF",
+      "convertPdf": "konversi PDF",
+      "freePdfTools": "alat PDF gratis",
+      "onlinePdfEditor": "editor PDF online"
+    }
+  },
+  "common": {
+    "brand": "PDFCraft",
+    "tagline": "Alat PDF Profesional - Gratis & Pribadi",
+    "navigation": {
+      "home": "Beranda",
+      "tools": "Alat",
+      "workflow": "Alur Kerja",
+      "about": "Tentang",
+      "faq": "FAQ",
+      "privacy": "Privasi",
+      "contact": "Kontak"
+    },
+    "buttons": {
+      "upload": "Unggah File",
+      "download": "Unduh",
+      "process": "Proses",
+      "cancel": "Batal",
+      "reset": "Atur Ulang",
+      "clear": "Bersihkan",
+      "selectLanguage": "Pilih Bahasa",
+      "close": "Tutup",
+      "save": "Simpan",
+      "delete": "Hapus",
+      "edit": "Edit",
+      "back": "Kembali",
+      "next": "Berikutnya",
+      "previous": "Sebelumnya",
+      "submit": "Kirim",
+      "clearAll": "Bersihkan Semua",
+      "remove": "Hapus",
+      "selectAll": "Pilih Semua",
+      "deselectAll": "Batal Pilih Semua",
+      "apply": "Terapkan",
+      "insertAtBeginning": "Masukkan di Awal",
+      "insertAtEnd": "Masukkan di Akhir",
+      "rotateAllLeft": "Putar Semua ke Kiri",
+      "rotateAllRight": "Putar Semua ke Kanan",
+      "confirm": "Konfirmasi",
+      "add": "Tambah"
+    },
+    "status": {
+      "idle": "Siap",
+      "uploading": "Mengunggah...",
+      "processing": "Memproses...",
+      "complete": "Selesai",
+      "error": "Kesalahan",
+      "loading": "Memuat..."
+    },
+    "footer": {
+      "footer": "© 2025 PDFCraft. Seluruh hak cipta dilindungi undang-undang.",
+      "copyright": "© {year} PDFCraft. Seluruh hak cipta dilindungi undang-undang.",
+      "privacyBadge": "100% Pribadi - File tidak pernah meninggalkan perangkat Anda",
+      "madeWith": "Dibuat dengan <Heart /> dan <Nextjs />"
+    },
+    "recentFiles": {
+      "title": "File Terbaru",
+      "empty": "Tidak ada file terbaru",
+      "clearAll": "Bersihkan Semua",
+      "processedWith": "Diproses dengan"
+    },
+    "savedProjects": {
+      "title": "Proyek Tersimpan",
+      "empty": "Tidak ada proyek tersimpan",
+      "clearAll": "Bersihkan Semua",
+      "resume": "Lanjutkan",
+      "delete": "Hapus",
+      "inProgress": "Sedang Berjalan",
+      "paused": "Ditangguhkan",
+      "completed": "Selesai",
+      "progress": "Kemajuan",
+      "files": "file"
+    },
+    "batchProcessing": {
+      "title": "Pemrosesan Batch",
+      "addFiles": "Letakkan file di sini atau klik untuk menambah",
+      "clearAll": "Bersihkan Semua",
+      "startProcessing": "Mulai Memproses",
+      "cancelProcessing": "Batal",
+      "downloadAll": "Unduh Semua",
+      "downloadZip": "Unduh sebagai ZIP",
+      "pending": "Tertunda",
+      "processing": "Memproses...",
+      "completed": "Selesai",
+      "error": "Kesalahan",
+      "progress": "Kemajuan Keseluruhan",
+      "filesSelected": "file dipilih",
+      "noFiles": "Belum ada file yang ditambahkan. Tambahkan file untuk memulai pemrosesan batch."
+    },
+    "guidedTour": {
+      "startTour": "Mulai Tur",
+      "next": "Berikutnya",
+      "prev": "Kembali",
+      "finish": "Selesai",
+      "skip": "Lewati",
+      "stepOf": "dari",
+      "welcomeTitle": "Selamat Datang di PDFCraft!",
+      "welcomeMessage": "Apakah Anda ingin tur singkat untuk mempelajari cara menggunakan alat PDF kami? Hanya butuh satu menit.",
+      "helpButton": "Tur Bantuan"
+    },
+    "search": {
+      "placeholder": "Cari alat...",
+      "hint": "Tekan Enter untuk memilih, ↑↓ untuk menavigasi",
+      "noResults": "Alat tidak ditemukan"
+    },
+    "fileUploader": {
+      "dragDrop": "Seret dan letakkan file di sini, atau klik untuk menelusuri",
+      "dropToUpload": "Letakkan file untuk mengunggah",
+      "support": "Dukungan",
+      "paste": "Tempel (Ctrl+V)"
+    },
+    "accessibility": {
+      "skipToContent": "Lanjut ke konten utama",
+      "skipToNavigation": "Lanjut ke navigasi",
+      "loading": "Memuat, harap tunggu",
+      "menuExpanded": "Menu diperluas",
+      "menuCollapsed": "Menu diciutkan",
+      "newWindow": "Membuka di jendela baru",
+      "externalLink": "Tautan eksternal",
+      "required": "Bidang wajib diisi",
+      "optional": "Opsional",
+      "selected": "Dipilih",
+      "notSelected": "Tidak dipilih",
+      "pageOf": "Halaman {current} dari {total}",
+      "sortAscending": "Urutkan naik",
+      "sortDescending": "Urutkan turun",
+      "closeDialog": "Tutup dialog",
+      "expandSection": "Perluas bagian",
+      "collapseSection": "Ciutkan bagian"
+    },
+    "options": {
+      "auto": "Otomatis",
+      "portrait": "Potret",
+      "landscape": "Lanskap"
+    }
+  },
+  "toolsPage": {
+    "title": "Alat PDF Profesional",
+    "subtitle": "{count}+ alat gratis, aman, dan mudah digunakan untuk semua kebutuhan PDF Anda.",
+    "filters": "Filter",
+    "allTools": "Semua Alat",
+    "clearAll": "Bersihkan semua",
+    "clearFilters": "Bersihkan filter",
+    "showingAll": "Menampilkan semua {count} alat",
+    "showingFiltered": "Menampilkan {filtered} dari {total} alat",
+    "forQuery": "untuk \"{query}\"",
+    "inCategory": "dalam {category}",
+    "noToolsFound": "Alat tidak ditemukan"
+  },
+  "faqPage": {
+    "title": "Pertanyaan yang Sering Diajukan",
+    "subtitle": "Temukan jawaban untuk pertanyaan umum tentang {brand}",
+    "searchPlaceholder": "Cari FAQ...",
+    "noResults": "Tidak ada FAQ yang cocok dengan pencarian Anda.",
+    "expandAll": "Perluas Semua",
+    "collapseAll": "Ciutkan Semua",
+    "categories": {
+      "all": "Semua",
+      "general": "Umum",
+      "privacy": "Privasi & Keamanan",
+      "features": "Fitur",
+      "technical": "Teknis",
+      "languages": "Bahasa"
+    },
+    "sections": {
+      "general": {
+        "whatIs": {
+          "question": "Apa itu PDFCraft?",
+          "answer": "PDFCraft adalah toolkit PDF gratis yang berfokus pada privasi yang berjalan sepenuhnya di browser Anda. Kami menawarkan 80+ alat profesional untuk mengedit, mengonversi, menggabung, memisah, dan mengamankan file PDF tanpa mengunggahnya ke server mana pun."
+        },
+        "isFree": {
+          "question": "Apakah PDFCraft benar-benar gratis?",
+          "answer": "Ya, PDFCraft sepenuhnya gratis untuk digunakan. Tidak ada biaya tersembunyi, tidak ada tingkat premium, dan tidak perlu registrasi. Semua fitur tersedia untuk semua orang."
+        },
+        "account": {
+          "question": "Apakah saya perlu membuat akun?",
+          "answer": "Tidak, Anda tidak perlu membuat akun atau mendaftar untuk menggunakan PDFCraft. Cukup kunjungi situs web dan mulai gunakan alat apa pun segera."
+        }
+      },
+      "privacy": {
+        "uploaded": {
+          "question": "Apakah file saya diunggah ke server?",
+          "answer": "Tidak, file Anda tidak pernah diunggah ke server mana pun. Semua pemrosesan PDF terjadi secara lokal di browser Anda menggunakan JavaScript dan WebAssembly. File Anda tidak pernah meninggalkan perangkat Anda."
+        },
+        "safe": {
+          "question": "Apakah aman menggunakan PDFCraft untuk dokumen sensitif?",
+          "answer": "Ya, PDFCraft dirancang dengan mengutamakan privasi. Karena semua pemrosesan terjadi secara lokal di browser Anda, dokumen sensitif Anda tetap berada di perangkat Anda dan tidak pernah dikirimkan melalui internet."
+        },
+        "storage": {
+          "question": "Apa yang terjadi dengan file saya setelah diproses?",
+          "answer": "File Anda disimpan sementara di memori browser Anda selama pemrosesan. Setelah Anda menutup tab browser atau berpindah halaman, semua data file akan dihapus secara otomatis. Kami tidak menyimpan file Anda."
+        }
+      },
+      "features": {
+        "operations": {
+          "question": "Operasi PDF apa saja yang bisa saya lakukan?",
+          "answer": "PDFCraft menawarkan 67+ alat termasuk: gabung, pisah, kompres, konversi (ke/dari gambar, teks, JSON), edit, anotasi, tanda tangan, tambah watermark, enkripsi/dekripsi, OCR, dan banyak lagi."
+        },
+        "merge": {
+          "question": "Bisakah saya menggabungkan beberapa file PDF?",
+          "answer": "Ya, Anda dapat menggabungkan beberapa file PDF menjadi satu. Cukup gunakan alat Gabung PDF, unggah file Anda, atur dalam urutan yang diinginkan, dan klik gabung."
+        },
+        "images": {
+          "question": "Bisakah saya mengonversi gambar ke PDF?",
+          "answer": "Ya, PDFCraft mendukung konversi berbagai format gambar (JPG, PNG, WebP, BMP, TIFF, SVG, HEIC) ke PDF. Anda dapat mengonversi satu atau beberapa gambar sekaligus."
+        },
+        "edit": {
+          "question": "Bisakah saya mengedit teks dalam PDF?",
+          "answer": "PDFCraft menyediakan alat anotasi dan pengeditan termasuk menyorot, menambah teks, bentuk, gambar, dan tanda tangan. Untuk pengeditan teks lengkap, alat Editor PDF menawarkan kemampuan anotasi yang komprehensif."
+        }
+      },
+      "technical": {
+        "browsers": {
+          "question": "Browser apa saja yang didukung?",
+          "answer": "PDFCraft berfungsi di semua browser modern termasuk Chrome, Firefox, Safari, dan Edge. Kami merekomendasikan penggunaan versi terbaru browser Anda untuk pengalaman terbaik."
+        },
+        "sizeLimit": {
+          "question": "Apakah ada batasan ukuran file?",
+          "answer": "Sebagian besar alat mendukung file hingga 100MB, dengan beberapa alat seperti gabung dan kompres mendukung hingga 500MB. Batasan ini diterapkan untuk memastikan kinerja yang lancar di browser Anda."
+        },
+        "slow": {
+          "question": "Mengapa pemrosesan lambat untuk file besar?",
+          "answer": "Karena semua pemrosesan terjadi di browser Anda, kinerja tergantung pada kemampuan perangkat Anda. File besar membutuhkan lebih banyak memori dan daya pemrosesan. Untuk hasil terbaik, tutup tab browser dan aplikasi lainnya."
+        },
+        "offline": {
+          "question": "Apakah PDFCraft berfungsi secara offline?",
+          "answer": "Saat ini, PDFCraft memerlukan koneksi internet untuk memuat aplikasi. Namun, setelah dimuat, pemrosesan PDF itu sendiri terjadi secara lokal dan tidak memerlukan koneksi."
+        }
+      },
+      "languages": {
+        "supported": {
+          "question": "Bahasa apa saja yang didukung?",
+          "answer": "PDFCraft tersedia dalam 10 bahasa: Inggris, Jepang, Korea, Spanyol, Prancis, Jerman, Mandarin, Portugis, Italia, dan Bahasa Indonesia."
+        },
+        "change": {
+          "question": "Bagaimana cara mengubah bahasa?",
+          "answer": "Anda dapat mengubah bahasa menggunakan pemilih bahasa di header. Pilihan Anda akan disimpan untuk kunjungan berikutnya."
+        }
+      }
+    },
+    "cta": {
+      "title": "Masih punya pertanyaan?",
+      "description": "Tidak menemukan jawaban yang Anda cari? Jangan ragu untuk menghubungi kami.",
+      "button": "Hubungi Kami"
+    }
+  },
+  "aboutPage": {
+    "title": "Tentang {brand}",
+    "description": "{brand} adalah toolkit PDF gratis yang berfokus pada privasi yang berjalan sepenuhnya di browser Anda. Dengan {count}+ alat profesional, Anda dapat mengedit, mengonversi, menggabung, memisah, dan mengamankan file PDF Anda tanpa pernah mengunggahnya ke server.",
+    "mission": {
+      "title": "Misi Kami",
+      "p1": "Kami percaya bahwa setiap orang harus memiliki akses ke alat PDF yang kuat tanpa mengorbankan privasi mereka atau membayar biaya langganan yang mahal. Itulah sebabnya kami membuat {brand} – toolkit PDF komprehensif yang mengutamakan privasi Anda.",
+      "p2": "Berbeda dengan layanan PDF tradisional yang mengharuskan Anda mengunggah file ke server jarak jauh, {brand} memproses semuanya secara lokal di browser Anda. Dokumen sensitif Anda tidak pernah meninggalkan perangkat Anda, memberi Anda kendali penuh atas data Anda.",
+      "p3": "Baik Anda seorang pelajar, profesional, atau pengguna biasa, {brand} menyediakan semua alat yang Anda butuhkan untuk bekerja dengan PDF secara efisien dan aman."
+    },
+    "values": {
+      "title": "Nilai-Nilai Kami",
+      "privacy": {
+        "title": "Privasi Utama",
+        "description": "File Anda tidak pernah meninggalkan perangkat Anda. Semua pemrosesan terjadi secara lokal di browser Anda, memastikan privasi dan keamanan penuh."
+      },
+      "fast": {
+        "title": "Cepat & Efisien",
+        "description": "Didukung oleh teknologi web modern, PDFCraft memberikan pemrosesan PDF yang sangat cepat tanpa perlu unggah atau unduh."
+      },
+      "accessible": {
+        "title": "Dapat Diakses di Mana Saja",
+        "description": "Tersedia dalam 10 bahasa dan berfungsi di perangkat apa pun dengan browser modern. Tidak perlu instalasi."
+      },
+      "free": {
+        "title": "Gratis Selamanya",
+        "description": "PDFCraft sepenuhnya gratis untuk digunakan tanpa biaya tersembunyi, tidak perlu registrasi, dan tanpa batasan penggunaan."
+      },
+      "openSource": {
+        "title": "Open Source",
+        "description": "Dibangun dengan transparansi. Kode kami adalah open source, memungkinkan siapa saja untuk memverifikasi klaim privasi kami."
+      },
+      "community": {
+        "title": "Digerakkan oleh Komunitas",
+        "description": "Dikembangkan dengan masukan dari pengguna di seluruh dunia. Kami terus berkembang berdasarkan kebutuhan Anda."
+      }
+    },
+    "technology": {
+      "title": "Dibangun dengan Teknologi Modern",
+      "description": "{brand} dibangun menggunakan teknologi web mutakhir untuk memastikan pengalaman terbaik:",
+      "list": {
+        "nextjs": "<strong1>Next.js</strong1> - Untuk rendering halaman yang cepat dan ramah SEO",
+        "wasm": "<strong1>WebAssembly</strong1> - Untuk performa pemrosesan PDF yang mendekati asli",
+        "workers": "<strong1>Web Workers</strong1> - Untuk pemrosesan latar belakang yang tidak memblokir",
+        "pdflib": "<strong1>pdf-lib & PDF.js</strong1> - Pustaka manipulasi PDF standar industri",
+        "indexeddb": "<strong1>IndexedDB</strong1> - Untuk penyimpanan lokal yang aman bagi pekerjaan Anda"
+      },
+      "summary": "Kombinasi teknologi ini memungkinkan kami menyediakan alat PDF tingkat profesional yang berjalan sepenuhnya di browser Anda, tanpa pemrosesan sisi server."
+    },
+    "cta": {
+      "title": "Siap untuk Memulai?",
+      "description": "Jelajahi {count}+ alat PDF kami dan lihat apa yang bisa dilakukan {brand} untuk Anda.",
+      "button": "Lihat Semua Alat"
+    }
+  },
+  "contactPage": {
+    "hero": {
+      "title": "Hubungi Kami",
+      "description": "Punya pertanyaan, saran, atau menemukan bug? Kami ingin mendengar dari Anda."
+    },
+    "methods": {
+      "email": {
+        "title": "Email",
+        "description": "Kirimkan email kepada kami dan kami akan membalas dalam 24-48 jam.",
+        "action": "contact@pdfcraft.app"
+      },
+      "github": {
+        "title": "GitHub",
+        "description": "Laporkan bug, minta fitur, atau berkontribusi pada proyek.",
+        "action": "Lihat di GitHub"
+      },
+      "twitter": {
+        "title": "Twitter",
+        "description": "Ikuti kami untuk pembaruan dan pengumuman.",
+        "action": "@pdfcraft"
+      }
+    },
+    "form": {
+      "title": "Kirim Pesan",
+      "description": "Isi formulir di bawah ini dan kami akan segera menghubungi Anda.",
+      "success": {
+        "title": "Pesan Terkirim!",
+        "description": "Terima kasih telah menghubungi kami. Kami akan membalas dalam 24-48 jam.",
+        "button": "Kirim Pesan Lain"
+      },
+      "fields": {
+        "name": {
+          "label": "Nama",
+          "placeholder": "Nama Anda"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "email@anda.com"
+        },
+        "subject": {
+          "label": "Subjek",
+          "placeholder": "Pilih subjek",
+          "options": {
+            "general": "Pertanyaan Umum",
+            "bug": "Laporan Bug",
+            "feature": "Permintaan Fitur",
+            "feedback": "Umpan Balik",
+            "other": "Lainnya"
+          }
+        },
+        "message": {
+          "label": "Pesan",
+          "placeholder": "Beri tahu kami lebih lanjut tentang pertanyaan Anda..."
+        }
+      },
+      "error": "Terjadi kesalahan. Silakan coba lagi atau hubungi kami langsung melalui email.",
+      "submit": {
+        "loading": "Mengirim...",
+        "default": "Kirim Pesan"
+      }
+    },
+    "faq": {
+      "title": "Mencari Jawaban Cepat?",
+      "description": "Lihat halaman FAQ kami untuk jawaban atas pertanyaan umum tentang {brand}.",
+      "button": "Lihat FAQ"
+    }
+  },
+  "errors": {
+    "pageError": "Terjadi kesalahan",
+    "pageErrorDescription": "Terjadi kesalahan yang tidak terduga. Silakan coba lagi.",
+    "tryAgain": "Coba lagi",
+    "goHome": "Kembali ke beranda",
+    "fileTooLarge": "Ukuran file terlalu besar. Ukuran maksimum adalah {maxSize}MB.",
+    "fileTypeInvalid": "Jenis file tidak valid. Silakan unggah file {acceptedTypes}.",
+    "fileCorrupted": "File tampak rusak atau tidak terbaca.",
+    "fileEmpty": "File kosong.",
+    "fileNotPdf": "File bukan merupakan PDF yang valid.",
+    "processingFailed": "Pemrosesan gagal. Silakan coba lagi.",
+    "processingCancelled": "Operasi dibatalkan.",
+    "networkError": "Kesalahan jaringan. Silakan periksa koneksi Anda.",
+    "pdfEncrypted": "PDF ini dilindungi kata sandi. Silakan dekripsi terlebih dahulu.",
+    "pdfMalformed": "Struktur PDF tidak valid. Coba alat perbaikan terlebih dahulu.",
+    "processingTimeout": "Operasi memakan waktu terlalu lama. Coba dengan file yang lebih kecil.",
+    "memoryExceeded": "Browser kehabisan memori. Tutup tab lain dan coba lagi.",
+    "workerFailed": "Worker pemrosesan terhenti. Silakan refresh dan coba lagi.",
+    "browserNotSupported": "Browser Anda tidak mendukung fitur ini.",
+    "invalidPageRange": "Rentang halaman yang ditentukan tidak valid.",
+    "invalidOptions": "Opsi yang diberikan tidak valid.",
+    "unknown": "Terjadi kesalahan yang tidak terduga. Silakan coba lagi.",
+    "toolNotFound": "Alat Tidak Ditemukan"
+  },
+  "home": {
+    "hero": {
+      "title": "Alat PDF Profesional",
+      "highlight": "Alat Profesional",
+      "subtitle": "Pemrosesan PDF gratis, pribadi, dan kuat di browser Anda",
+      "cta": "Mulai Sekarang"
+    },
+    "features": {
+      "privacy": {
+        "title": "100% Pribadi",
+        "description": "Semua pemrosesan terjadi di browser Anda. File Anda tidak pernah meninggalkan perangkat Anda."
+      },
+      "free": {
+        "title": "Sepenuhnya Gratis",
+        "description": "Tanpa registrasi, tanpa batasan, tanpa biaya tersembunyi."
+      },
+      "powerful": {
+        "title": "Alat yang Kuat",
+        "description": "67+ alat PDF profesional untuk semua kebutuhan Anda."
+      }
+    },
+    "popularTools": {
+      "badge": "Paling Populer",
+      "title": "Alat PDF Populer",
+      "description": "Alat yang paling sering digunakan untuk membantu Anda menyelesaikan pekerjaan lebih cepat."
+    },
+    "categoriesSection": {
+      "title": "Jelajahi Semua Kategori Alat",
+      "description": "{count}+ alat PDF profesional yang diatur berdasarkan kategori",
+      "toolsCount": "{count} alat"
+    },
+    "categoriesDescription": {
+      "editAnnotate": "Edit, beri anotasi, dan ubah konten PDF",
+      "convertToPdf": "Konversi berbagai format ke PDF",
+      "convertFromPdf": "Konversi PDF ke format lain",
+      "organizeManage": "Atur, gabung, pisah, dan kelola halaman PDF",
+      "optimizeRepair": "Kompres, optimalkan, dan perbaiki file PDF",
+      "securePdf": "Enkripsi, dekripsi, dan amankan file PDF"
+    },
+    "stats": {
+      "pdfTools": "Alat PDF",
+      "freeToUse": "Gratis Digunakan",
+      "languages": "Bahasa",
+      "filesUploaded": "File Diunggah"
+    },
+    "categories": {
+      "popular": "Alat Populer",
+      "editAnnotate": "Edit & Anotasi",
+      "convertToPdf": "Konversi ke PDF",
+      "convertFromPdf": "Konversi dari PDF",
+      "organizeManage": "Atur & Kelola",
+      "optimizeRepair": "Optimalkan & Perbaiki",
+      "securePdf": "Amankan PDF"
+    }
+  },
+  "workflow": {
+    "title": "Pembangun Alur Kerja PDF",
+    "subtitle": "Buat pipa pemrosesan PDF khusus dengan menghubungkan alat-alat",
+    "metaTitle": "Pembangun Alur Kerja PDF - PDFCraft",
+    "metaDescription": "Buat pipa pemrosesan PDF khusus dengan menghubungkan alat secara visual. Bangun, simpan, dan gunakan kembali alur kerja Anda.",
+    "toolbox": "Kotak Alat",
+    "dragToAdd": "Seret alat untuk menambahkan ke alur kerja",
+    "searchTools": "Cari alat...",
+    "toolsAvailable": "alat tersedia",
+    "templates": "Templat",
+    "saved": "Tersimpan",
+    "favorites": "Favorit",
+    "allCategories": "Semua",
+    "common": "Umum",
+    "conversion": "Konversi",
+    "optimization": "Optimasi",
+    "security": "Keamanan",
+    "noSavedWorkflows": "Belum ada alur kerja yang tersimpan",
+    "saveWorkflowHint": "Buat dan simpan alur kerja pertama Anda",
+    "noFavorites": "Tidak ada alur kerja favorit",
+    "favoriteHint": "Beri bintang pada alur kerja untuk menambahkannya di sini",
+    "selectFiles": "Pilih File",
+    "filesSelected": "file dipilih",
+    "execute": "Jalankan",
+    "running": "Berjalan",
+    "complete": "Selesai",
+    "error": "Kesalahan",
+    "issues": "masalah",
+    "stop": "Berhenti",
+    "validationErrors": "Kesalahan Validasi",
+    "warnings": "Peringatan",
+    "executionFailed": "Eksekusi alur kerja gagal",
+    "retry": "Coba lagi",
+    "nodes": "node",
+    "import": "Impor",
+    "clear": "Bersihkan",
+    "saveWorkflow": "Simpan Alur Kerja",
+    "workflowName": "Nama Alur Kerja",
+    "enterName": "Masukkan nama alur kerja...",
+    "description": "Deskripsi",
+    "optional": "opsional",
+    "enterDescription": "Masukkan deskripsi...",
+    "workflowComplete": "Alur kerja berhasil diselesaikan!",
+    "downloadResults": "Unduh Hasil",
+    "emptyTitle": "Buat Alur Kerja Anda",
+    "emptyDescription": "Seret alat dari sidebar untuk membangun pipa pemrosesan PDF Anda. Hubungkan node untuk menentukan urutan pemrosesan.",
+    "clickHint": "Klik sebuah node untuk mengonfigurasi pengaturannya",
+    "undo": "Urungkan",
+    "redo": "Ulangi",
+    "noSettings": "Tidak ada pengaturan yang dapat dikonfigurasi untuk alat ini",
+    "reset": "Atur Ulang",
+    "cancel": "Batal",
+    "apply": "Terapkan",
+    "preview": "Pratinjau",
+    "showPreview": "Tampilkan Pratinjau",
+    "noFilesForPreview": "Pilih file untuk melihat pratinjau",
+    "generatingPreview": "Menghasilkan pratinjau...",
+    "noPreviewAvailable": "Pratinjau tidak tersedia",
+    "selectedFiles": "File yang Dipilih",
+    "filesCount": "file",
+    "viewEditFiles": "Lihat/Edit File",
+    "moveUp": "Pindah ke Atas",
+    "moveDown": "Pindah ke Bawah",
+    "removeFile": "Hapus",
+    "clearAll": "Bersihkan Semua",
+    "previewNotAvailable": "Pratinjau tidak tersedia untuk jenis file ini",
+    "confirm": "Konfirmasi",
+    "collapseSidebar": "Ciutkan sidebar",
+    "expandSidebar": "Perluas sidebar",
+    "library": "Perpustakaan",
+    "connections": "koneksi",
+    "history": "Riwayat",
+    "executionHistory": "Riwayat Eksekusi",
+    "totalExecutions": "Total Jalankan",
+    "successRate": "Tingkat Keberhasilan",
+    "avgDuration": "Durasi Rata-rata",
+    "noHistory": "Belum ada riwayat eksekusi",
+    "noHistoryHint": "Jalankan alur kerja untuk melihat riwayat di sini",
+    "confirmDelete": "Apakah Anda yakin ingin menghapus catatan riwayat ini?",
+    "confirmClearAllHistory": "Apakah Anda yakin ingin menghapus semua riwayat? Ini tidak bisa dibatalkan.",
+    "unnamedWorkflow": "Alur Kerja Tanpa Nama",
+    "nodesSuccess": "node berhasil",
+    "nodesFailed": "gagal",
+    "loadWorkflow": "Muat Alur Kerja",
+    "viewDetails": "Lihat Detail",
+    "detailsInConsole": "Detail dicatat ke konsol (F12)",
+    "workflowTemplates": {
+      "mergeCompress": {
+        "name": "Gabung & Kompres",
+        "description": "Gabungkan beberapa PDF dan kompres hasilnya untuk ukuran file yang lebih kecil"
+      },
+      "imagesToWatermarkedPdf": {
+        "name": "Gambar ke PDF Ber-watermark",
+        "description": "Konversi gambar ke PDF dan tambahkan watermark khusus"
+      },
+      "pdfToImages": {
+        "name": "PDF ke Gambar Terkompresi",
+        "description": "Konversi halaman PDF ke gambar JPG"
+      },
+      "securePdf": {
+        "name": "Buat PDF Aman",
+        "description": "Gabungkan PDF, tambah watermark, dan enkripsi dengan kata sandi"
+      },
+      "documentPrep": {
+        "name": "Persiapan Dokumen",
+        "description": "Gabungkan PDF, tambah nomor halaman, dan tambah header/footer"
+      },
+      "optimizeForWeb": {
+        "name": "Optimalkan untuk Web",
+        "description": "Kompres dan linearisasi PDF untuk tampilan web yang cepat"
+      },
+      "splitAndWatermark": {
+        "name": "Pisah & Watermark",
+        "description": "Pisahkan PDF menjadi per halaman dan tambahkan watermark pada masing-masing"
+      },
+      "officeToMergedPdf": {
+        "name": "File Office ke PDF Tunggal",
+        "description": "Konversi dokumen Word ke PDF dan gabungkan"
+      },
+      "rotateAndNumber": {
+        "name": "Putar & Tambah Nomor Halaman",
+        "description": "Putar halaman PDF dan tambahkan nomor halaman"
+      },
+      "printReady": {
+        "name": "Dokumen Siap Cetak",
+        "description": "Siapkan PDF untuk pencetakan dengan nomor halaman dan ratakan (flatten)"
+      },
+      "grayscaleCompress": {
+        "name": "Grayscale & Kompres",
+        "description": "Konversi ke skala abu-abu dan kompres untuk ukuran yang lebih kecil"
+      },
+      "extractAndMerge": {
+        "name": "Ekstrak & Gabung Halaman",
+        "description": "Ekstrak halaman tertentu dan gabungkan menjadi dokumen baru"
+      },
+      "confidentialDocument": {
+        "name": "Dokumen Rahasia",
+        "description": "Tambah watermark rahasia dan enkripsi PDF"
+      },
+      "pdfToEditableDoc": {
+        "name": "PDF ke Dokumen yang Dapat Diedit",
+        "description": "Konversi PDF ke dokumen Word untuk pengeditan"
+      },
+      "fullOptimization": {
+        "name": "Optimasi Dokumen Penuh",
+        "description": "Kompres, ratakan, dan linearisasi untuk performa optimal"
+      },
+      "pdfToPresentation": {
+        "name": "PDF ke PowerPoint",
+        "description": "Konversi PDF ke presentasi PowerPoint yang dapat diedit"
+      },
+      "unlockAndEdit": {
+        "name": "Buka Kunci & Edit PDF",
+        "description": "Dekripsi PDF yang dilindungi untuk pengeditan"
+      },
+      "ebookConvert": {
+        "name": "eBook ke PDF",
+        "description": "Konversi e-book EPUB ke format PDF"
+      },
+      "batchWatermark": {
+        "name": "Watermark Batch",
+        "description": "Tambah watermark ke beberapa file PDF sekaligus"
+      },
+      "archivePrep": {
+        "name": "Persiapan Arsip",
+        "description": "Hapus metadata, ratakan, dan kompres untuk penyimpanan jangka panjang"
+      },
+      "reportAssembly": {
+        "name": "Penyusunan Laporan",
+        "description": "Gabungkan dokumen, tambah nomor halaman, header/footer, dan daftar isi"
+      },
+      "invoiceProcessing": {
+        "name": "Pemrosesan Faktur",
+        "description": "Ekstrak halaman, tambah watermark, dan kompres untuk email"
+      },
+      "photoAlbum": {
+        "name": "Pembuat Album Foto",
+        "description": "Konversi gambar ke PDF dengan nomor halaman"
+      },
+      "cropAndResize": {
+        "name": "Potong & Ubah Ukuran Halaman",
+        "description": "Potong halaman PDF dan sesuaikan dimensi halaman"
+      }
+    }
+  },
+  "tools": {
+    "search": {
+      "placeholder": "Cari alat...",
+      "noResults": "Alat tidak ditemukan untuk \"{query}\""
+    },
+    "relatedTools": "Anda Mungkin Juga Suka",
+    "about": "Tentang Alat Ini",
+    "howToUse": "Cara Penggunaan",
+    "useCases": "Kasus Pengunaan",
+    "faq": "Pertanyaan yang Sering Diajukan",
+    "comingSoon": "Alat ini akan segera hadir.",
+    "successTitle": "Konversi Berhasil!",
+    "favorite": {
+      "add": "Tambah ke Favorit",
+      "remove": "Hapus dari Favorit",
+      "saved": "Tersimpan",
+      "title": "Alat Favorit",
+      "empty": "Belum ada alat favorit",
+      "hint": "Klik ikon bintang pada alat apa pun untuk menyimpannya di sini untuk akses cepat."
+    },
+    "quality": {
+      "title": "Kualitas Output",
+      "low": "Rendah",
+      "medium": "Sedang",
+      "high": "Tinggi",
+      "hint": "Kualitas yang lebih tinggi menghasilkan file yang lebih besar dan membutuhkan waktu lebih lama untuk dikonversi."
+    },
+    "mergePdf": {
+      "uploadLabel": "Unggah File PDF",
+      "uploadDescription": "Seret dan letakkan file PDF di sini, atau klik untuk menelusuri. Anda dapat menambahkan beberapa file.",
+      "filesTitle": "File untuk Digabung",
+      "reorderHint": "Seret dan letakkan untuk mengatur ulang file. File akan digabung sesuai urutan yang ditampilkan.",
+      "optionsTitle": "Opsi Gabung",
+      "preserveBookmarks": "Pertahankan bookmark (buat bookmark untuk setiap file)",
+      "mergeButton": "Gabung PDF",
+      "successMessage": "PDF berhasil digabung! Klik tombol unduh untuk menyimpan file Anda."
+    },
+    "gridCombine": {
+      "uploadLabel": "Unggah File PDF",
+      "uploadDescription": "Seret dan letakkan beberapa file PDF di sini.",
+      "filesTitle": "File untuk Dikombinasikan",
+      "reorderHint": "Seret dan letakkan untuk mengatur ulang file.",
+      "optionsTitle": "Opsi Tata Letak",
+      "gridLayout": "Tata Letak Grid",
+      "pageSize": "Ukuran Halaman",
+      "orientation": "Orientasi",
+      "spacing": "Jarak",
+      "useMargins": "Tambah margin",
+      "addBorder": "Tambah batas",
+      "borderColor": "Warna Batas",
+      "combineButton": "Kombinasikan PDF",
+      "successMessage": "PDF berhasil dikombinasikan! Klik tombol unduh untuk menyimpan file Anda.",
+      "layoutPreview": "Pratinjau Tata Letak",
+      "columns": "kolom",
+      "rows": "baris",
+      "pageMode": "Mode Halaman",
+      "firstPageOnly": "Hanya halaman pertama",
+      "allPages": "Semua halaman",
+      "firstPageOnlyHint": "Hanya gunakan halaman pertama dari setiap PDF.",
+      "allPagesHint": "Sertakan semua halaman dari setiap PDF dalam grid.",
+      "fillMode": "Mode Pengisian",
+      "leaveEmpty": "Biarkan sel kosong",
+      "repeat": "Ulangi dari awal",
+      "stretchLast": "Ulangi halaman terakhir",
+      "fillModeHint": "Cara mengisi sel kosong jika file lebih sedikit daripada sel grid.",
+      "cells": "sel",
+      "page": "halaman",
+      "pages": "halaman",
+      "previewInfoAllPages": "{fileCount} PDF dengan total {totalPages} halaman akan diatur dalam grid {layout} di {outputPages} halaman output.",
+      "previewInfoFirstPage": "{fileCount} PDF akan diatur dalam grid {layout} di {outputPages} halaman.",
+      "minFilesError": "Silakan tambahkan setidaknya 2 file PDF untuk dikombinasikan."
+    },
+    "nUpPdf": {
+      "uploadLabel": "Unggah File PDF",
+      "uploadDescription": "Seret dan letakkan file PDF di sini, atau klik untuk menelusuri.",
+      "optionsTitle": "Opsi N-Up",
+      "pagesPerSheet": "Halaman per Lembar",
+      "customLayout": "Kustom...",
+      "columns": "Kolom",
+      "rows": "Baris",
+      "pageSize": "Ukuran Halaman Output",
+      "orientation": "Orientasi",
+      "layoutDirection": "Arah Tata Letak",
+      "layoutHorizontal": "Horizontal (berdampingan)",
+      "layoutVertical": "Vertikal (bertumpuk)",
+      "layoutHorizontalDesc": "Halaman diletakkan berdampingan (kiri-kanan)",
+      "layoutVerticalDesc": "Halaman ditumpuk dari atas ke bawah",
+      "useMargins": "Tambah margin dan gutter",
+      "addBorder": "Tambah batas di sekitar halaman",
+      "borderColor": "Warna Batas",
+      "layoutPreview": "Pratinjau Tata Letak",
+      "gridLayoutInfo": "Grid: {cols} × {rows} ({perSheet} halaman per lembar)",
+      "previewInfo": "{pages} halaman → {sheets} lembar output",
+      "readingOrder": "Urutan baca",
+      "topToBottom": "↓ Atas ke bawah",
+      "leftToRight": "→ Kiri ke kanan, lalu ↓ ke bawah",
+      "createButton": "Buat PDF {pages}-Up",
+      "createCustomButton": "Buat PDF {cols}×{rows}",
+      "gridLabel": "Tata Letak Grid",
+      "outputPages": "Lembar Output",
+      "pagesLabel": "halaman",
+      "sheetsLabel": "lembar",
+      "perSheetLabel": "per lembar",
+      "successMessage": "PDF N-Up berhasil dibuat! Klik tombol unduh untuk menyimpan file Anda."
+    },
+    "splitPdf": {
+      "uploadLabel": "Unggah File PDF",
+      "uploadDescription": "Seret dan letakkan file PDF di sini, atau klik untuk menelusuri.",
+      "splitModeTitle": "Metode Pisah",
+      "splitModeLabel": "Mode Pisah",
+      "modeRanges": "Ekstrak berdasarkan Rentang Halaman (Default)",
+      "modeEvenOdd": "Pisah berdasarkan Halaman Ganjil/Genap",
+      "modeEveryPage": "Pisah Semua Halaman menjadi File Terpisah",
+      "modeVisual": "Pilih Halaman secara Visual",
+      "modeBookmarks": "Pisah berdasarkan Bookmark",
+      "modeNTimes": "Pisah N Kali",
+      "rangeInputLabel": "Rentang Halaman",
+      "rangeInputHint": "Masukkan nomor halaman atau rentang yang dipisahkan dengan koma. Biarkan kosong untuk mengekspor semua halaman sebagai satu file.",
+      "evenOddLabel": "Ekstrak Halaman",
+      "oddPagesOnly": "Hanya Halaman Ganjil",
+      "evenPagesOnly": "Hanya Halaman Genap",
+      "bothSeparate": "Keduanya (File Terpisah)",
+      "evenOddHint": "Halaman ganjil: 1, 3, 5... Halaman genap: 2, 4, 6...",
+      "everyPageInfo": "Setiap halaman akan diekstrak sebagai file PDF terpisah. Ini akan membuat {count} file.",
+      "visualInfo": "Klik pada thumbnail halaman di bawah untuk memilih halaman mana yang akan diekstrak. Halaman yang dipilih akan digabung menjadi satu PDF atau dipisah menjadi file individu.",
+      "bookmarksNotice": "Catatan: Pemisahan berdasarkan bookmark memerlukan adanya bookmark dalam PDF. Jika tidak ada bookmark yang ditemukan, seluruh PDF akan dikembalikan sebagai satu file.",
+      "splitCountLabel": "Jumlah Bagian",
+      "splitCountHint": "Pisah menjadi {count} bagian yang sama (~{pages} halaman masing-masing)",
+      "pagesPerFile": "Halaman Per File",
+      "pageRanges": "Rentang Halaman",
+      "pageRangesPlaceholder": "misal, 1-3, 5, 7-9",
+      "modeEveryNPages": "Setiap N Halaman",
+      "pagePreviewTitle": "Pilih Halaman",
+      "splitButton": "Pisah PDF",
+      "resultsTitle": "Hasil Pisah",
+      "successMessage": "PDF berhasil dipisah! Klik tombol unduh untuk menyimpan file Anda.",
+      "modeVisualShort": "Pilih Visual",
+      "modeBookmarksShort": "Bookmark",
+      "modeNTimesShort": "Pisah N Bagian",
+      "downloadZip": "Unduh Semua sebagai ZIP"
+    },
+    "deletePages": {
+      "uploadLabel": "Unggah File PDF",
+      "uploadDescription": "Seret dan letakkan file PDF di sini, atau klik untuk menelusuri.",
+      "selectTitle": "Pilih Halaman untuk Dihapus",
+      "selectHint": "Klik halaman untuk memilihnya untuk dihapus, atau masukkan nomor/rentang halaman di atas.",
+      "warning": "Peringatan",
+      "warningText": "Halaman yang dipilih akan dihapus secara permanen dari PDF. Setidaknya satu halaman harus tersisa.",
+      "deleteButton": "Hapus Halaman",
+      "pageRange": "Rentang Halaman",
+      "pageRangePlaceholder": "misal, 1, 3-5, 8",
+      "successMessage": "Halaman berhasil dihapus! Klik tombol unduh untuk menyimpan file Anda."
+    },
+    "extractPages": {
+      "uploadLabel": "Unggah File PDF",
+      "uploadDescription": "Seret dan letakkan file PDF di sini, atau klik untuk menelusuri.",
+      "selectTitle": "Pilih Halaman untuk Diekstrak",
+      "selectHint": "Klik halaman untuk memilihnya, atau masukkan nomor/rentang halaman di atas.",
+      "pageRange": "Rentang Halaman",
+      "pageRangePlaceholder": "misal, 1-5, 8, 10-12",
+      "extractButton": "Ekstrak Halaman",
+      "successMessage": "Halaman berhasil diekstrak! Klik tombol unduh untuk menyimpan file Anda."
+    },
+    "posterizePdf": {
+      "uploadLabel": "Unggah File PDF",
+      "uploadDescription": "Seret dan letakkan file PDF di sini, atau klik untuk menelusuri.",
+      "optionsTitle": "Opsi Posterize",
+      "rows": "Baris",
+      "cols": "Kolom",
+      "pageSize": "Ukuran Halaman Output",
+      "orientation": "Orientasi",
+      "overlap": "Tumpang Tindih",
+      "scalingMode": "Mode Penskalaan",
+      "fit": "Pas (pertahankan rasio aspek)",
+      "fill": "Isi (mungkin terpotong)",
+      "pageRange": "Rentang Halaman (opsional)",
+      "pageRangePlaceholder": "misal, 1-5, 8, 10-15 (biarkan kosong untuk semua halaman)",
+      "previewInfo": "Setiap halaman akan dipisah menjadi {rows}×{cols} = {total} ubin.",
+      "createButton": "Posterize PDF",
+      "successMessage": "PDF berhasil di-posterize! Klik tombol unduh untuk menyimpan file Anda."
+    },
+    "digitalSign": {
+      "uploadLabel": "Unggah PDF untuk Ditandatangani",
+      "uploadDescription": "Seret dan letakkan file PDF di sini, atau klik untuk menelusuri.",
+      "certificateTitle": "Sertifikat",
+      "uploadCertificateLabel": "Unggah Sertifikat (.pfx, .p12, atau .pem)",
+      "certificateLoaded": "Sertifikat dimuat",
+      "enterPassword": "Masukkan kata sandi untuk membuka kunci",
+      "certificatePasswordLabel": "Kata Sandi Sertifikat",
+      "unlockButton": "Buka Kunci",
+      "subject": "Subjek",
+      "issuer": "Penerbit",
+      "valid": "Valid",
+      "warningExpired": "Peringatan: Sertifikat telah kedaluwarsa atau belum valid. Penandatanganan mungkin masih berfungsi tetapi tanda tangan akan muncul sebagai tidak valid.",
+      "signatureOptionsTitle": "Opsi Tanda Tangan",
+      "reasonLabel": "Alasan",
+      "reasonPlaceholder": "misal, Persetujuan dokumen",
+      "locationLabel": "Lokasi",
+      "locationPlaceholder": "misal, Jakarta, Indonesia",
+      "contactInfoLabel": "Info Kontak",
+      "contactInfoPlaceholder": "misal, email@anda.com",
+      "visibleSignatureLabel": "Tambah tanda tangan terlihat",
+      "xPosition": "Posisi X",
+      "yPosition": "Posisi Y",
+      "width": "Lebar",
+      "height": "Tinggi",
+      "pageLabel": "Halaman",
+      "firstPage": "Halaman Pertama",
+      "lastPage": "Halaman Terakhir",
+      "allPages": "Semua Halaman",
+      "signatureImageLabel": "Gambar Tanda Tangan (opsional, PNG/JPEG)",
+      "signatureTextLabel": "Teks Tanda Tangan (opsional, dihasilkan otomatis jika kosong)",
+      "signatureTextPlaceholder": "Dihasilkan otomatis jika kosong",
+      "textColorLabel": "Warna Teks",
+      "textSizeLabel": "Ukuran Teks",
+      "signButton": "Tandatangani PDF",
+      "successMessage": "PDF berhasil ditandatangani! Tanda tangan dapat diverifikasi di pembaca PDF apa pun.",
+      "errorFetch": "Gagal mengambil rantai sertifikat. Periksa koneksi internet Anda dan coba lagi.",
+      "errorParse": "Gagal mengurai sertifikat",
+      "errorPEM": "Gagal membaca file PEM.",
+      "errorType": "Silakan pilih file .pfx, .p12, atau .pem.",
+      "errorImgType": "Silakan pilih gambar PNG atau JPEG."
+    },
+    "validateSign": {
+      "uploadLabel": "Unggah PDF yang Ditandatangani",
+      "uploadDescription": "Seret dan letakkan file PDF yang ditandatangani di sini, atau klik untuk menelusuri.",
+      "trustedCertTitle": "Sertifikat Tepercaya (Opsional)",
+      "trustedCertDescription": "Unggah sertifikat CA tepercaya untuk memverifikasi rantai tanda tangan.",
+      "trustedCertLoaded": "Sertifikat tepercaya dimuat: {name}",
+      "analyzing": "Menganalisis tanda tangan...",
+      "noSignaturesTitle": "Tanda Tangan Tidak Ditemukan",
+      "noSignaturesDescription": "PDF ini tidak mengandung tanda tangan digital apa pun.",
+      "signaturesFound": "{count} tanda tangan ditemukan",
+      "validCount": "{count} valid",
+      "trustedCount": "{count}/{total} tepercaya",
+      "validSignature": "Tanda Tangan Valid",
+      "invalidSignature": "Tanda Tangan Tidak Valid",
+      "certificateExpired": "Sertifikat Kedaluwarsa",
+      "selfSigned": "Sertifikat Berpenanda Tangan Sendiri",
+      "fullCoverage": "Cakupan Penuh",
+      "partialCoverage": "Cakupan Parsial",
+      "trusted": "Tepercaya",
+      "notTrusted": "Tidak dalam rantai kepercayaan",
+      "signedBy": "Ditandatangani Oleh",
+      "issuer": "Penerbit",
+      "signedOn": "Ditandatangani Pada",
+      "validFrom": "Valid Dari",
+      "validUntil": "Valid Hingga",
+      "reason": "Alasan",
+      "location": "Lokasi",
+      "technicalDetails": "Detail Teknis",
+      "serialNumber": "Nomor Seri",
+      "digestAlgorithm": "Algoritma Digest",
+      "signatureAlgorithm": "Algoritma Tanda Tangan",
+      "errorType": "Silakan pilih file sertifikat .pem, .crt, .cer, atau .der."
+    },
+    "compressPdf": {
+      "uploadLabel": "Unggah File PDF",
+      "uploadDescription": "Seret dan letakkan file PDF di sini, atau klik untuk menelusuri.",
+      "optionsTitle": "Opsi Kompresi",
+      "compressionLevel": "Tingkat Kompresi",
+      "recommended": "Kompresi yang Direkomendasikan (Kualitas Bagus, Ukuran Kecil)",
+      "extreme": "Kompresi Ekstrim (Kualitas Kurang, Ukuran Sangat Kecil)",
+      "low": "Kompresi Rendah (Kualitas Tinggi, Ukuran Besar)",
+      "custom": "Kustom (Atur kualitas gambar dan resolusi)",
+      "imageQuality": "Kualitas Gambar",
+      "imageResolution": "Resolusi Gambar (DPI)",
+      "grayscale": "Konversi gambar ke skala abu-abu",
+      "compressButton": "Kompres PDF",
+      "successMessage": "PDF berhasil dikompres!",
+      "originalSize": "Ukuran Asli",
+      "compressedSize": "Ukuran Terkompresi",
+      "savings": "Hemat {percent}%",
+      "errorSmall": "File sudah sekecil mungkin."
+    },
+    "pdfOcr": {
+      "uploadLabel": "Unggah PDF Hasil Scan atau Gambar",
+      "uploadDescription": "Seret dan letakkan file di sini. Mendukung PDF hasil scan, JPG, PNG, dan WebP.",
+      "optionsTitle": "Opsi OCR",
+      "language": "Pilih Bahasa",
+      "autoLanguage": "Deteksi Otomatis",
+      "multipleLanguages": "Beberapa Bahasa",
+      "outputFormat": "Format Output",
+      "searchablePdf": "PDF yang Dapat Dicari (Teks di Atas Gambar)",
+      "textOnly": "Hanya Teks (.txt)",
+      "editableDoc": "Dokumen yang Dapat Diedit (.docx)",
+      "improveQuality": "Tingkatkan kualitas gambar sebelum pemrosesan",
+      "deskew": "Perbaiki kemiringan (deskew) halaman secara otomatis",
+      "removeLines": "Hapus garis (untuk OCR yang lebih baik pada formulir)",
+      "ocrButton": "Jalankan OCR",
+      "status": {
+        "loading": "Memuat database pengenalan bahasa...",
+        "recognizing": "Mengenali teks pada halaman {current} dari {total}...",
+        "cleaning": "Membersihkan file sementara...",
+        "finishing": "Menyusun dokumen hasil..."
+      },
+      "successMessage": "OCR Berhasil! Dokumen Anda sekarang memiliki teks yang dapat dicari/diedit."
+    },
+    "pageNumbers": {
+      "uploadLabel": "Unggah File PDF",
+      "uploadDescription": "Seret dan letakkan file PDF.",
+      "optionsTitle": "Opsi Nomor Halaman",
+      "positionTitle": "Posisi",
+      "formatTitle": "Format",
+      "formatNumber": "Angka (1, 2, 3)",
+      "formatRoman": "Romawi (I, II, III)",
+      "formatPageOfTotal": "Halaman X dari Y",
+      "styleTitle": "Gaya",
+      "startNumber": "Nomor Mulai",
+      "customFormat": "Format Kustom",
+      "customFormatHint": "Gunakan {page} dan {total} sebagai placeholder",
+      "prefix": "Awalan",
+      "suffix": "Akhiran",
+      "fontSize": "Ukuran Font",
+      "margin": "Margin",
+      "color": "Warna",
+      "skipFirstPage": "Lewati halaman pertama (sampul)",
+      "preview": "Pratinjau",
+      "pageOf": "Halaman {current} dari {total}",
+      "firstPageSkipped": "Halaman pertama akan dilewati",
+      "previewText": "Pratinjau: \"{text}\"",
+      "addButton": "Tambah Nomor Halaman",
+      "successMessage": "Nomor halaman berhasil ditambahkan!"
+    },
+    "watermark": {
+      "uploadLabel": "Unggah File PDF",
+      "uploadDescription": "Seret dan letakkan file PDF.",
+      "optionsTitle": "Opsi Watermark",
+      "type": "Jenis",
+      "textWatermark": "Watermark Teks",
+      "imageWatermark": "Watermark Gambar",
+      "watermarkText": "Teks Watermark",
+      "watermarkImage": "Gambar Watermark (PNG/JPG)",
+      "position": "Posisi",
+      "posCenter": "Tengah",
+      "posDiagonal": "Diagonal",
+      "posTopLeft": "Kiri Atas",
+      "posTopRight": "Kanan Atas",
+      "posBottomLeft": "Kiri Bawah",
+      "posBottomRight": "Kanan Bawah",
+      "fontSize": "Ukuran Font",
+      "color": "Warna",
+      "opacity": "Opasitas",
+      "angle": "Sudut",
+      "enterText": "Silakan masukkan teks untuk watermark.",
+      "textPlaceholder": "misal, RAHASIA",
+      "selectImage": "Silakan pilih file gambar untuk watermark.",
+      "unsupportedImage": "Format gambar tidak didukung. Silakan gunakan PNG atau JPG.",
+      "failed": "Gagal menambahkan watermark.",
+      "addButton": "Tambah Watermark",
+      "successMessage": "Watermark berhasil ditambahkan!"
+    },
+    "headerFooter": {
+      "uploadLabel": "Unggah File PDF",
+      "uploadDescription": "Seret dan letakkan file PDF di sini.",
+      "headerTitle": "Header",
+      "headerText": "Teks Header",
+      "headerTextPlaceholder": "Masukkan teks header...",
+      "footerTitle": "Footer",
+      "footerText": "Teks Footer",
+      "footerTextPlaceholder": "Masukkan teks footer...",
+      "styleTitle": "Gaya",
+      "fontSize": "Ukuran Font",
+      "fontColor": "Warna Font",
+      "preview": "Pratinjau",
+      "previewHint": "Masukkan teks header atau footer untuk melihat pratinjau",
+      "addButton": "Tambah Header & Footer",
+      "successMessage": "Header & footer berhasil ditambahkan!"
+    },
+    "invertColors": {
+      "uploadLabel": "Unggah File PDF",
+      "uploadDescription": "Seret dan letakkan file PDF.",
+      "invertButton": "Balikkan Warna",
+      "successMessage": "Warna berhasil dibalikkan!"
+    },
+    "backgroundColor": {
+      "uploadLabel": "Unggah File PDF",
+      "uploadDescription": "Seret dan letakkan file PDF.",
+      "colorLabel": "Warna Latar Belakang",
+      "applyButton": "Terapkan Latar Belakang",
+      "successMessage": "Warna latar belakang berhasil diterapkan!"
+    },
+    "textColor": {
+      "uploadLabel": "Unggah File PDF",
+      "uploadDescription": "Seret dan letakkan file PDF.",
+      "colorLabel": "Warna Teks",
+      "modeLabel": "Jenis Teks",
+      "modeDark": "Teks gelap (latar terang)",
+      "modeLight": "Teks terang (latar gelap)",
+      "thresholdLabel": "Ambang Batas Kecerahan",
+      "thresholdHint": "Sesuaikan untuk mengontrol piksel mana yang terpengaruh",
+      "applyButton": "Terapkan Warna Teks",
+      "successMessage": "Warna teks berhasil diterapkan!"
+    },
+    "stamps": {
+      "uploadLabel": "Unggah File PDF",
+      "uploadDescription": "Seret dan letakkan file PDF di sini.",
+      "instructionsTitle": "Cara Menambahkan Stempel",
+      "instruction1": "Klik alat Stempel (ikon gambar) di toolbar di atas",
+      "instruction2": "Klik \"Tambah gambar\" untuk mengunggah gambar stempel Anda",
+      "instruction3": "Klik pada PDF di mana Anda ingin menempatkan stempel",
+      "instruction4": "Seret untuk mengubah ukuran atau mengatur ulang posisi stempel",
+      "instruction5": "Klik \"Simpan PDF Terstempel\" di bawah jika sudah selesai",
+      "saveButton": "Simpan PDF Terstempel",
+      "viewerNotReady": "Viewer belum siap. Harap tunggu hingga PDF dimuat.",
+      "saveFailed": "Gagal menyimpan PDF terstempel. Silakan coba lagi.",
+      "successMessage": "Stempel berhasil ditambahkan!"
+    },
+    "removeAnnotations": {
+      "uploadLabel": "Unggah File PDF",
+      "uploadDescription": "Seret dan letakkan file PDF.",
+      "optionsTitle": "Opsi Penghapusan",
+      "removeButton": "Hapus Anotasi",
+      "successMessage": "Anotasi berhasil dihapus!",
+      "removeComments": "Hapus Komentar",
+      "removeHighlights": "Hapus Sorotan",
+      "removeLinks": "Hapus Tautan"
+    },
+    "formFiller": {
+      "uploadLabel": "Unggah File PDF",
+      "uploadDescription": "Seret dan letakkan formulir PDF.",
+      "saveButton": "Simpan Formulir",
+      "successMessage": "Formulir berhasil disimpan!"
+    },
+    "formCreator": {
+      "uploadLabel": "Unggah File PDF",
+      "uploadDescription": "Seret dan letakkan file PDF di sini.",
+      "toolbarTitle": "Bilah Alat",
+      "selectTool": "Pilih",
+      "textFieldTool": "Bidang Teks",
+      "checkboxTool": "Kotak Centang",
+      "dropdownTool": "Dropdown",
+      "radioTool": "Radio",
+      "deleteTool": "Hapus",
+      "pageNavigation": "Halaman {current} / {total}",
+      "selectHint": "Klik bidang untuk memilih, seret untuk memindahkan, gunakan sudut untuk mengubah ukuran",
+      "addFieldHint": "Klik pada PDF untuk menambahkan bidang {type}",
+      "fieldProperties": "Properti Bidang",
+      "fieldName": "Nama",
+      "fieldType": "Jenis",
+      "fieldX": "X",
+      "fieldY": "Y",
+      "fieldWidth": "Lebar",
+      "fieldHeight": "Tinggi",
+      "multiline": "Multi-baris",
+      "options": "Opsi (satu per baris)",
+      "deleteField": "Hapus Bidang",
+      "noFieldSelected": "Pilih bidang untuk mengedit propertinya, atau gunakan bilah alat untuk menambahkan bidang baru.",
+      "allFields": "Semua Bidang ({count})",
+      "noFieldsYet": "Belum ada bidang yang ditambahkan. Klik pada PDF untuk menambahkan bidang formulir.",
+      "page": "Halaman {number}",
+      "createButton": "Buat Formulir",
+      "successMessage": "Formulir berhasil dibuat!",
+      "formOptions": "Opsi Formulir",
+      "flattenForm": "Ratakan Formulir",
+      "flattenFormHint": "Buat bidang formulir tidak dapat diedit (konversi ke konten statis)",
+      "projectManagement": "Manajemen Proyek",
+      "saveProject": "Simpan Proyek",
+      "savedProjects": "Proyek Tersimpan",
+      "loadProject": "Muat",
+      "deleteProject": "Hapus",
+      "saveProjectTitle": "Simpan Proyek",
+      "projectName": "Nama Proyek",
+      "projectNamePlaceholder": "Masukkan nama proyek...",
+      "saveInfo": "{fields} bidang formulir akan disimpan.",
+      "saveNote": "Proyek disimpan secara lokal di browser Anda.",
+      "undo": "Urungkan (Ctrl+Z)",
+      "redo": "Ulangi (Ctrl+Y)",
+      "duplicate": "Duplikat (Ctrl+D)",
+      "align": "Ratakan",
+      "alignLeft": "Rata Kiri",
+      "alignCenter": "Rata Tengah",
+      "alignRight": "Rata Kanan",
+      "alignTop": "Rata Atas",
+      "alignMiddle": "Rata Tengah (Vertikal)",
+      "alignBottom": "Rata Bawah",
+      "defaultValue": "Nilai Default",
+      "defaultValuePlaceholder": "Masukkan teks default...",
+      "defaultChecked": "Dicentang secara default",
+      "defaultSelection": "Pilihan Default",
+      "noDefault": "-- Tidak ada --",
+      "required": "Bidang wajib",
+      "shortcutsHint": "Pintasan: Ctrl+Z (Urungkan) | Ctrl+Y (Ulangi) | Ctrl+D (Duplikat) | Ctrl+A (Pilih Semua) | Delete (Hapus)",
+      "buttonTool": "Tombol",
+      "signatureTool": "Tanda Tangan",
+      "dateTool": "Tanggal",
+      "listboxTool": "Kotak Daftar",
+      "buttonLabel": "Label Tombol",
+      "buttonLabelPlaceholder": "Kirim",
+      "signatureLabel": "Label Tanda Tangan",
+      "signatureLabelPlaceholder": "Tanda tangan di sini",
+      "dateFormat": "Format Tanggal",
+      "defaultDate": "Tanggal Default",
+      "multiSelect": "Izinkan pilihan ganda",
+      "basicTools": "Dasar",
+      "advancedTools": "Lainnya",
+      "properties": "Properti",
+      "fieldsTab": "Bidang",
+      "optionsTab": "Opsi",
+      "addField": "Tambah",
+      "clickToAdd": "Klik pada PDF untuk menambah bidang",
+      "pages": "halaman",
+      "processingButton": "Memproses...",
+      "cancelButton": "Batal",
+      "saveButton": "Simpan",
+      "orCreateBlank": "Atau",
+      "createBlankPdf": "Buat PDF Kosong",
+      "createBlankPdfTitle": "Buat PDF Kosong",
+      "pageSize": "Ukuran Halaman",
+      "pageCount": "Jumlah Halaman",
+      "blankPdfNote": "PDF kosong akan dibuat agar Anda dapat menambahkan bidang formulir.",
+      "addBlankPage": "Tambah Halaman Kosong",
+      "addPageBefore": "Sebelum saat ini",
+      "addPageAfter": "Setelah saat ini",
+      "addPageEnd": "Di akhir",
+      "templateHint": "Atau pilih templat untuk memulai dengan cepat",
+      "templates": "Templat",
+      "selectTemplate": "Pilih...",
+      "template": {
+        "contact": "Formulir Kontak",
+        "registration": "Pendaftaran",
+        "feedback": "Umpan Balik",
+        "order": "Formulir Pemesanan",
+        "consent": "Persetujuan",
+        "invoice": "Faktur"
+      },
+      "fieldLabel": "Label",
+      "fieldLabelPlaceholder": "Masukkan teks label...",
+      "labelPosition": "Posisi",
+      "labelAbove": "Di atas",
+      "labelLeft": "Di kiri"
+    },
+    "removeBlankPages": {
+      "uploadLabel": "Unggah File PDF",
+      "uploadDescription": "Seret dan letakkan file PDF.",
+      "optionsTitle": "Opsi Deteksi",
+      "removeButton": "Hapus Halaman Kosong",
+      "successMessage": "Halaman kosong berhasil dihapus!"
+    },
+    "tableOfContents": {
+      "uploadLabel": "Unggah File PDF",
+      "uploadDescription": "Seret dan letakkan file PDF.",
+      "optionsTitle": "Opsi Daftar Isi",
+      "generateButton": "Hasilkan Daftar Isi",
+      "successMessage": "Daftar isi berhasil dihasilkan!",
+      "options": "Opsi Daftar Isi",
+      "tocTitle": "Judul Daftar Isi",
+      "tocTitlePlaceholder": "Masukkan judul daftar isi...",
+      "fontSize": "Ukuran Font",
+      "fontFamily": "Font Family",
+      "addBookmark": "Tambah entri daftar isi ke bookmark",
+      "bookmarkRequired": "Alat ini menghasilkan daftar isi yang dapat diklik dari bookmark PDF yang ada. Pastikan PDF Anda memiliki bookmark sebelum menggunakan alat ini. Anda dapat menambahkan bookmark menggunakan alat Edit Bookmark.",
+      "generate": "Hasilkan Daftar Isi",
+      "success": "Daftar isi berhasil dihasilkan!"
+    },
+    "markdownToPdf": {
+      "uploadLabel": "Unggah File Markdown",
+      "uploadDescription": "Seret dan letakkan file .md atau .markdown untuk dikonversi ke PDF.",
+      "manualInput": "Tulis Markdown",
+      "uploadFile": "Unggah File",
+      "editorLabel": "Editor Markdown",
+      "previewLabel": "Pratinjau",
+      "showPreview": "Tampilkan Pratinjau",
+      "hidePreview": "Sembunyikan Pratinjau",
+      "optionsTitle": "Opsi Konversi",
+      "fontSize": "Ukuran Font",
+      "pageSizeLabel": "Ukuran Halaman",
+      "themeLabel": "Tema",
+      "gfmLabel": "Aktifkan GitHub Flavored Markdown (tabel, daftar tugas, dll.)",
+      "syntaxHighlightLabel": "Aktifkan penyorotan sintaks untuk blok kode",
+      "convertButton": "Konversi ke PDF",
+      "successMessage": "PDF berhasil dibuat! Klik unduh untuk menyimpan."
+    },
+    "pdfToDocx": {
+      "uploadLabel": "Unggah File PDF",
+      "uploadDescription": "Seret dan letakkan file PDF di sini, atau klik untuk menelusuri.",
+      "optionsTitle": "Opsi Konversi",
+      "preserveFormatting": "Pertahankan pemformatan",
+      "extractImages": "Ekstrak gambar",
+      "convertButton": "Konversi ke DOCX",
+      "successMessage": "PDF Anda telah berhasil dikonversi ke DOCX! Klik tombol unduh untuk menyimpan file Anda."
+    },
+    "pdfToMarkdown": {
+      "uploadLabel": "Unggah File PDF",
+      "uploadDescription": "Seret dan letakkan file PDF di sini, atau klik untuk menelusuri.",
+      "optionsTitle": "Opsi Konversi",
+      "pageRange": "Rentang Halaman",
+      "pageRangePlaceholder": "misal, 1-3, 5, 7",
+      "pageRangeHint": "Biarkan kosong untuk semua halaman",
+      "includePageNumbers": "Sertakan nomor halaman sebagai header",
+      "preserveLineBreaks": "Pertahankan jeda baris",
+      "convertButton": "Konversi ke Markdown",
+      "previewTab": "Pratinjau",
+      "sourceTab": "Sumber Markdown",
+      "successMessage": "PDF Anda telah berhasil dikonversi ke Markdown! Klik tombol unduh untuk menyimpan file Anda.",
+      "failed": "Gagal mengonversi PDF ke Markdown."
+    },
+    "pdfToExcel": {
+      "uploadLabel": "Unggah File PDF",
+      "uploadDescription": "Seret dan letakkan file PDF di sini, atau klik untuk menelusuri.",
+      "optionsTitle": "Opsi Konversi",
+      "detectTables": "Deteksi tabel otomatis",
+      "extractNote": "Tabel setiap halaman akan diekstrak ke lembar terpisah dalam file Excel.",
+      "convertButton": "Konversi ke Excel",
+      "successTitle": "Konversi Berhasil!",
+      "successMessage": "Tabel PDF Anda telah diekstrak ke Excel."
+    },
+    "pdfToPptx": {
+      "uploadLabel": "Unggah File PDF",
+      "uploadDescription": "Seret dan letakkan file PDF di sini, atau klik untuk menelusuri.",
+      "optionsTitle": "Opsi Konversi",
+      "dpiLabel": "Kualitas Gambar (DPI)",
+      "dpiHint": "DPI yang lebih tinggi menghasilkan slide berkualitas lebih baik tetapi ukuran file lebih besar.",
+      "lowSet": "Rendah (72 DPI - file lebih kecil)",
+      "mediumSet": "Sedang (150 DPI - seimbang)",
+      "highSet": "Tinggi (200 DPI - kualitas lebih baik)",
+      "veryHighSet": "Sangat Tinggi (300 DPI - kualitas terbaik)",
+      "convertButton": "Konversi ke PowerPoint",
+      "successTitle": "Konversi Berhasil!",
+      "successMessage": "PDF Anda telah dikonversi ke PowerPoint. Setiap halaman sekarang menjadi slide dengan gambar berkualitas penuh."
+    },
+    "wordToPdf": {
+      "uploadLabel": "Unggah Dokumen Word",
+      "uploadDescription": "Seret dan letakkan dokumen Word (.docx) di sini, atau klik untuk menelusuri.",
+      "convertButton": "Konversi ke PDF",
+      "successMessage": "Dokumen Word Anda telah berhasil dikonversi ke PDF!"
+    },
+    "psdToPdf": {
+      "uploadLabel": "Unggah File PSD",
+      "uploadDescription": "Seret dan letakkan file PSD (Photoshop) di sini, atau klik untuk menelusuri.",
+      "convertButton": "Konversi ke PDF",
+      "successMessage": "PSD berhasil dikonversi ke PDF! Klik tombol unduh untuk menyimpan file Anda."
+    },
+    "excelToPdf": {
+      "uploadLabel": "Unggah File Excel",
+      "uploadDescription": "Seret dan letakkan file Excel (.xlsx) di sini, atau klik untuk menelusuri.",
+      "convertButton": "Konversi ke PDF",
+      "successMessage": "File Excel Anda telah berhasil dikonversi ke PDF!"
+    },
+    "pptxToPdf": {
+      "uploadLabel": "Unggah File PowerPoint",
+      "uploadDescription": "Seret dan letakkan file PowerPoint (.pptx) di sini, atau klik untuk menelusuri.",
+      "convertButton": "Konversi ke PDF",
+      "successMessage": "File PowerPoint Anda telah berhasil dikonversi ke PDF!"
+    },
+    "xpsToPdf": {
+      "uploadLabel": "Unggah File XPS",
+      "uploadDescription": "Seret dan letakkan file XPS di sini, atau klik untuk menelusuri.",
+      "convertButton": "Konversi ke PDF",
+      "successMessage": "File XPS Anda telah berhasil dikonversi ke PDF!"
+    },
+    "rtfToPdf": {
+      "uploadLabel": "Unggah File RTF",
+      "uploadDescription": "Seret dan letakkan file RTF di sini, atau klik untuk menelusuri.",
+      "convertButton": "Konversi ke PDF",
+      "successMessage": "File RTF Anda telah berhasil dikonversi ke PDF!"
+    },
+    "epubToPdf": {
+      "uploadLabel": "Unggah File EPUB",
+      "uploadDescription": "Seret dan letakkan file e-book EPUB di sini, atau klik untuk menelusuri.",
+      "convertButton": "Konversi ke PDF",
+      "successMessage": "File EPUB Anda telah berhasil dikonversi ke PDF!"
+    },
+    "mobiToPdf": {
+      "uploadLabel": "Unggah File MOBI",
+      "uploadDescription": "Seret dan letakkan file e-book MOBI/AZW di sini, atau klik untuk menelusuri.",
+      "convertButton": "Konversi ke PDF",
+      "successMessage": "File MOBI Anda telah berhasil dikonversi ke PDF!"
+    },
+    "fb2ToPdf": {
+      "uploadLabel": "Unggah File FB2",
+      "uploadDescription": "Seret dan letakkan file e-book FB2 di sini, atau klik untuk menelusuri. Mendukung beberapa file.",
+      "convertButton": "Konversi ke PDF",
+      "successMessage": "File FB2 Anda telah berhasil dikonversi ke PDF!"
+    },
+    "djvuToPdf": {
+      "uploadLabel": "Unggah File DJVU",
+      "uploadDescription": "Seret dan letakkan file DJVU di sini, atau klik untuk menelusuri.",
+      "optionsTitle": "Opsi Konversi",
+      "dpiLabel": "DPI Output",
+      "dpiHint": "DPI lebih tinggi = ukuran file lebih besar, kualitas lebih baik",
+      "qualityLabel": "Kualitas Gambar",
+      "qualityHint": "Kualitas kompresi JPEG untuk halaman",
+      "convertButton": "Konversi ke PDF",
+      "successTitle": "Konversi Berhasil!",
+      "successMessage": "File DJVU Anda telah berhasil dikonversi ke PDF!"
+    },
+    "deskewPdf": {
+      "uploadLabel": "Unggah File PDF Hasil Scan",
+      "uploadDescription": "Seret dan letakkan file PDF di sini. Anda dapat memproses hingga 10 file sekaligus.",
+      "filesTitle": "File untuk Diperbaiki",
+      "optionsTitle": "Opsi Deskew",
+      "thresholdLabel": "Ambang Batas Deteksi",
+      "thresholdDesc": "Nilai lebih tinggi mendeteksi sudut kemiringan yang lebih halus. Default: 10",
+      "dpiLabel": "DPI Analisis",
+      "dpiDesc": "DPI lebih tinggi memberikan deteksi lebih akurat tetapi memakan waktu lebih lama.",
+      "processButton": "Perbaiki Kemiringan PDF",
+      "downloadAllZip": "Unduh Semua sebagai ZIP",
+      "successMessage": "File PDF berhasil diperbaiki kemiringannya!"
+    },
+    "pdfBooklet": {
+      "uploadLabel": "Unggah File PDF",
+      "uploadDescription": "Seret dan letakkan file PDF untuk membuat tata letak buklet.",
+      "optionsTitle": "Opsi Buklet",
+      "gridModeLabel": "Mode Grid",
+      "gridModeDesc": "1x2 adalah standar untuk buklet. Gunakan grid lebih besar untuk menghemat kertas.",
+      "paperSizeLabel": "Ukuran Kertas",
+      "orientationLabel": "Orientasi",
+      "rotationLabel": "Rotasi Halaman",
+      "paddingLabel": "Padding",
+      "bindingEdge": "Tepi Penjilidan",
+      "bindingLeft": "Kiri",
+      "bindingRight": "Kanan",
+      "previewLabel": "Pratinjau Tata Letak",
+      "previewDesc": "Pratinjau ini menunjukkan bagaimana halaman akan diatur pada setiap lembar.",
+      "createButton": "Buat Buklet",
+      "successMessage": "Buklet berhasil dibuat! Klik unduh untuk menyimpan."
+    },
+    "rasterizePdf": {
+      "uploadLabel": "Unggah File PDF",
+      "uploadDescription": "Seret dan letakkan file PDF untuk dirasterisasi menjadi gambar atau PDF baru.",
+      "optionsTitle": "Opsi Output",
+      "dpiLabel": "Resolusi (DPI)",
+      "formatLabel": "Format Output",
+      "qualityLabel": "Kualitas",
+      "pageRangeLabel": "Rentang Halaman (opsional)",
+      "pageRangeDesc": "Biarkan kosong untuk mengonversi semua halaman.",
+      "bgColorLabel": "Warna Latar Belakang",
+      "convertButton": "Rasterisasi",
+      "successMessage": "Rasterisasi selesai! Klik unduh untuk menyimpan file Anda."
+    },
+    "emailToPdf": {
+      "uploadLabel": "Unggah File Email",
+      "uploadDescription": "Seret dan letakkan file email (.eml) untuk dikonversi ke PDF.",
+      "optionsTitle": "Opsi Konversi",
+      "pageSizeLabel": "Ukuran Halaman",
+      "includeCcBccLabel": "Sertakan bidang CC/BCC",
+      "embedAttachments": "Sematkan lampiran dalam PDF",
+      "includeAttachmentsLabel": "Sertakan daftar lampiran",
+      "timezoneLabel": "Zona Waktu",
+      "convertButton": "Konversi ke PDF",
+      "successMessage": "Email berhasil dikonversi!"
+    },
+    "cbzToPdf": {
+      "uploadLabel": "Unggah File CBZ",
+      "uploadDescription": "Seret dan letakkan arsip komik (.cbz) untuk dikonversi ke PDF.",
+      "optionsTitle": "Opsi Konversi",
+      "pageSizeLabel": "Ukuran Halaman",
+      "qualityLabel": "Kualitas Gambar",
+      "preserveAspectLabel": "Pertahankan rasio aspek",
+      "convertButton": "Konversi ke PDF",
+      "successMessage": "Komik berhasil dikonversi!"
+    },
+    "pdfToPdfa": {
+      "uploadLabel": "Unggah File PDF",
+      "uploadDescription": "Seret dan letakkan file PDF untuk dikonversi ke format PDF/A.",
+      "filesTitle": "File untuk Dikonversi",
+      "optionsTitle": "Opsi PDF/A",
+      "levelLabel": "Level PDF/A",
+      "embedFontsLabel": "Sematkan semua font",
+      "flattenTransparencyLabel": "Ratakan transparansi (diperlukan untuk PDF/A-1b)",
+      "convertButton": "Konversi ke PDF/A",
+      "downloadAllZip": "Unduh Semua sebagai ZIP",
+      "successMessage": "File berhasil dikonversi ke PDF/A!"
+    },
+    "fontToOutline": {
+      "uploadLabel": "Unggah File PDF",
+      "uploadDescription": "Seret dan letakkan file PDF untuk mengonversi font ke outline.",
+      "filesTitle": "File",
+      "optionsTitle": "Opsi",
+      "dpiLabel": "DPI Rasterisasi",
+      "preserveSelectableText": "Pertahankan teks yang dapat dipilih",
+      "pageRange": "Rentang Halaman",
+      "convertButton": "Konversi Font ke Outline",
+      "downloadAllZip": "Unduh Semua sebagai ZIP",
+      "successMessage": "File berhasil dikonversi!"
+    },
+    "extractTables": {
+      "uploadLabel": "Unggah File PDF",
+      "uploadDescription": "Seret dan letakkan file PDF untuk mengekstrak tabel.",
+      "optionsTitle": "Opsi Ekstraksi",
+      "formatLabel": "Format Output",
+      "pageRangeLabel": "Rentang Halaman (opsional)",
+      "minColumnsLabel": "Kolom Min",
+      "minRowsLabel": "Baris Min",
+      "includePageNumbersLabel": "Sertakan nomor halaman dalam output",
+      "extractButton": "Ekstrak Tabel",
+      "successMessage": "Tabel berhasil diekstrak! Klik unduh untuk menyimpan."
+    },
+    "ocgManager": {
+      "uploadLabel": "Unggah File PDF",
+      "uploadDescription": "Seret dan letakkan PDF untuk mengelola layernya (OCG).",
+      "layersTitle": "Layer PDF",
+      "noLayers": "PDF ini tidak memiliki layer (OCG).",
+      "addLayerLabel": "Tambah Layer Baru",
+      "successMessage": "Perubahan layer berhasil disimpan!"
+    },
+    "pdfReader": {
+      "uploadLabel": "Buka File PDF",
+      "uploadDescription": "Buka file PDF untuk dibaca dan dilihat."
+    },
+    "findAndRedact": {
+      "uploadLabel": "Unggah File PDF",
+      "uploadDescription": "Seret dan letakkan file PDF untuk mencari dan meredaksi teks.",
+      "searchTitle": "Cari Teks",
+      "searchTermLabel": "Istilah Pencarian",
+      "searchTermPlaceholder": "Masukkan teks untuk dicari (misal, nomor rekening, nama)...",
+      "searchInputPlaceholder": "Masukkan istilah pencarian, dipisahkan dengan koma...",
+      "searchInputHelp": "Tip: Pisahkan beberapa istilah dengan koma (,)",
+      "multipleTermsPlaceholder": "Masukkan istilah pencarian (satu per baris atau dipisahkan koma)...\nContoh:\nBudi Santoso\nrekening123\n021-1234567",
+      "termsCount": "{count} istilah pencarian",
+      "searchButton": "Cari",
+      "searching": "Mencari...",
+      "caseSensitive": "Peka Huruf Besar-Kecil",
+      "wholeWord": "Hanya Kata Utuh",
+      "useRegex": "Gunakan Regular Expression",
+      "enterSearchTerm": "Silakan masukkan setidaknya satu istilah pencarian.",
+      "noMatchesFound": "Tidak ada hasil yang ditemukan untuk istilah pencarian tersebut.",
+      "searchFailed": "Gagal mencari PDF.",
+      "matchesFound": "{count} hasil ditemukan",
+      "filterByPage": "Filter berdasarkan Halaman",
+      "allPages": "Semua Halaman",
+      "pageNumber": "Halaman {page}",
+      "pageInfo": "Halaman {page}",
+      "selectedCount": "{selected} dari {total} dipilih",
+      "selectMatchesToRedact": "Silakan pilih setidaknya satu hasil untuk diredarksi.",
+      "redactionOptions": "Opsi Redaksi",
+      "redactionColor": "Warna Redaksi",
+      "replacementText": "Teks Pengganti (opsional)",
+      "replacementTextPlaceholder": "misal, [DIREDAKSI]",
+      "addBorder": "Tambah batas di sekitar area yang diredaksi",
+      "warningTitle": "Peringatan",
+      "warningText": "Redaksi bersifat permanen. Setelah diterapkan, konten asli tidak dapat dikembalikan.",
+      "redactButton": "Redaksi {count} Terpilih",
+      "redactFailed": "Gagal menerapkan redaksi.",
+      "successMessage": "Teks terpilih berhasil diredaksi! Klik unduh untuk menyimpan.",
+      "previewTitle": "Pratinjau",
+      "pagesWithMatches": "Halaman dengan hasil:",
+      "selectedMatch": "Terpilih",
+      "unselectedMatch": "Tidak terpilih"
+    }
+  }
+}
+

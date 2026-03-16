@@ -242,6 +242,7 @@ export function generateWebPageSchema(
     pt: 'pt-BR',
     ar: 'ar-AR',
     it: 'it-IT',
+    id: 'id-ID',
   };
 
   return {
