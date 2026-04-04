@@ -33,7 +33,7 @@
     "next-intl": "^4.1.0",
     "node-forge": "^1.3.3",
     "pdf-lib": "^1.17.1",
-    "pdfjs-dist": "^4.8.69",
+    "pdfjs-dist": "4.8.69",
     "pdfjs-dist-legacy": "npm:pdfjs-dist@^2.16.105",
     "react": "^19.0.0",
     "react-cropper": "^2.3.3",

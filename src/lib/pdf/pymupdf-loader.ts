@@ -97,19 +97,24 @@ sys.modules["fire"] = fire_mod
           const arrayBuffer = await file.arrayBuffer();
           const pdfData = new Uint8Array(arrayBuffer);
 
+          // Use unique file names to avoid race conditions during concurrent processing
+          const uid = `${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+          const inputPath = `/input_docx_${uid}.pdf`;
+          const outputPath = `/output_docx_${uid}.docx`;
+
           // Write PDF to virtual filesystem
-          pyodide.FS.writeFile('/input.pdf', pdfData);
+          pyodide.FS.writeFile(inputPath, pdfData);
 
           // Convert using pdf2docx
           const result = await pyodide.runPythonAsync(`
 import base64
 from pdf2docx import Converter
 
-cv = Converter('/input.pdf')
-cv.convert('/output.docx')
+cv = Converter('${inputPath}')
+cv.convert('${outputPath}')
 cv.close()
 
-with open('/output.docx', 'rb') as f:
+with open('${outputPath}', 'rb') as f:
     docx_data = f.read()
 
 base64.b64encode(docx_data).decode('ascii')
@@ -117,8 +122,8 @@ base64.b64encode(docx_data).decode('ascii')
 
           // Clean up
           try {
-            pyodide.FS.unlink('/input.pdf');
-            pyodide.FS.unlink('/output.docx');
+            pyodide.FS.unlink(inputPath);
+            pyodide.FS.unlink(outputPath);
           } catch {
             // Ignore cleanup errors
           }
@@ -340,7 +345,11 @@ base64.b64encode(pdf_bytes).decode('ascii')
           const pdfData = new Uint8Array(arrayBuffer);
           const { threshold = 0.5, dpi = 150 } = options || {};
 
-          pyodide.FS.writeFile('/input.pdf', pdfData);
+          // Use unique file names to avoid race conditions during concurrent processing
+          const uid = `${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+          const inputPath = `/input_deskew_${uid}.pdf`;
+
+          pyodide.FS.writeFile(inputPath, pdfData);
 
           const result = await pyodide.runPythonAsync(`
 import pymupdf
@@ -526,7 +535,7 @@ def rotate_page(page, angle):
         return False
 
 # Main processing
-doc = pymupdf.open("/input.pdf")
+doc = pymupdf.open("${inputPath}")
 angles = []
 corrected = []
 
@@ -569,7 +578,7 @@ json.dumps(result_data) + "|||" + base64.b64encode(pdf_bytes).decode('ascii')
           const resultData = JSON.parse(resultJson);
 
           try {
-            pyodide.FS.unlink('/input.pdf');
+            pyodide.FS.unlink(inputPath);
           } catch {
             // Ignore cleanup errors
           }
@@ -591,7 +600,11 @@ json.dumps(result_data) + "|||" + base64.b64encode(pdf_bytes).decode('ascii')
           const pdfData = new Uint8Array(arrayBuffer);
           const { dpi = 300, preserveSelectableText = false, pageRange = '' } = options || {};
 
-          pyodide.FS.writeFile('/input.pdf', pdfData);
+          // Use unique file names to avoid race conditions during concurrent processing
+          const uid = `${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+          const inputPath = `/input_font_${uid}.pdf`;
+
+          pyodide.FS.writeFile(inputPath, pdfData);
 
           const result = await pyodide.runPythonAsync(`
 import pymupdf
@@ -708,7 +721,7 @@ def convert_fonts_to_outlines(input_doc, dpi=300, preserve_text=False, page_indi
     return output_doc, total_fonts
 
 # Main processing
-input_doc = pymupdf.open("/input.pdf")
+input_doc = pymupdf.open("${inputPath}")
 total_pages = len(input_doc)
 
 # Parse page range
@@ -746,7 +759,7 @@ json.dumps(result_data) + "|||" + base64.b64encode(pdf_bytes).decode('ascii')
           const resultData = JSON.parse(resultJson);
 
           try {
-            pyodide.FS.unlink('/input.pdf');
+            pyodide.FS.unlink(inputPath);
           } catch {
             // Ignore cleanup errors
           }
@@ -769,13 +782,17 @@ json.dumps(result_data) + "|||" + base64.b64encode(pdf_bytes).decode('ascii')
           const arrayBuffer = await file.arrayBuffer();
           const pdfData = new Uint8Array(arrayBuffer);
 
-          pyodide.FS.writeFile('/input.pdf', pdfData);
+          // Use unique file names to avoid race conditions during concurrent processing
+          const uid = `${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+          const inputPath = `/input_ocg_get_${uid}.pdf`;
+
+          pyodide.FS.writeFile(inputPath, pdfData);
 
           const result = await pyodide.runPythonAsync(`
 import pymupdf
 import json
 
-doc = pymupdf.open("/input.pdf")
+doc = pymupdf.open("${inputPath}")
 
 # Get OCG (Optional Content Groups) info
 ocgs = doc.get_ocgs() or {}
@@ -795,7 +812,7 @@ json.dumps(layers)
 `);
 
           try {
-            pyodide.FS.unlink('/input.pdf');
+            pyodide.FS.unlink(inputPath);
           } catch {
             // Ignore cleanup errors
           }
@@ -808,13 +825,17 @@ json.dumps(layers)
           const pdfData = new Uint8Array(arrayBuffer);
           const { layerId, visible } = options;
 
-          pyodide.FS.writeFile('/input.pdf', pdfData);
+          // Use unique file names to avoid race conditions during concurrent processing
+          const uid = `${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+          const inputPath = `/input_ocg_toggle_${uid}.pdf`;
+
+          pyodide.FS.writeFile(inputPath, pdfData);
 
           const result = await pyodide.runPythonAsync(`
 import pymupdf
 import base64
 
-doc = pymupdf.open("/input.pdf")
+doc = pymupdf.open("${inputPath}")
 
 # Toggle OCG visibility - simplified implementation
 # In production, you'd use set_ocg_state
@@ -826,7 +847,7 @@ base64.b64encode(pdf_bytes).decode('ascii')
 `);
 
           try {
-            pyodide.FS.unlink('/input.pdf');
+            pyodide.FS.unlink(inputPath);
           } catch {
             // Ignore cleanup errors
           }
@@ -845,13 +866,17 @@ base64.b64encode(pdf_bytes).decode('ascii')
           const pdfData = new Uint8Array(arrayBuffer);
           const { name } = options;
 
-          pyodide.FS.writeFile('/input.pdf', pdfData);
+          // Use unique file names to avoid race conditions during concurrent processing
+          const uid = `${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+          const inputPath = `/input_ocg_add_${uid}.pdf`;
+
+          pyodide.FS.writeFile(inputPath, pdfData);
 
           const result = await pyodide.runPythonAsync(`
 import pymupdf
 import base64
 
-doc = pymupdf.open("/input.pdf")
+doc = pymupdf.open("${inputPath}")
 
 # Add new OCG layer
 xref = doc.add_ocg("${name || 'New Layer'}")
@@ -865,7 +890,7 @@ str(xref) + "|||" + base64.b64encode(pdf_bytes).decode('ascii')
           const [xrefStr, pdfBase64] = result.split('|||');
 
           try {
-            pyodide.FS.unlink('/input.pdf');
+            pyodide.FS.unlink(inputPath);
           } catch {
             // Ignore cleanup errors
           }
@@ -886,13 +911,17 @@ str(xref) + "|||" + base64.b64encode(pdf_bytes).decode('ascii')
           const arrayBuffer = await file.arrayBuffer();
           const pdfData = new Uint8Array(arrayBuffer);
 
-          pyodide.FS.writeFile('/input.pdf', pdfData);
+          // Use unique file names to avoid race conditions during concurrent processing
+          const uid = `${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+          const inputPath = `/input_ocg_del_${uid}.pdf`;
+
+          pyodide.FS.writeFile(inputPath, pdfData);
 
           const result = await pyodide.runPythonAsync(`
 import pymupdf
 import base64
 
-doc = pymupdf.open("/input.pdf")
+doc = pymupdf.open("${inputPath}")
 
 # Note: PyMuPDF doesn't have direct OCG deletion API
 # This is a placeholder - in production you'd need to modify the PDF structure
@@ -904,7 +933,7 @@ base64.b64encode(pdf_bytes).decode('ascii')
 `);
 
           try {
-            pyodide.FS.unlink('/input.pdf');
+            pyodide.FS.unlink(inputPath);
           } catch {
             // Ignore cleanup errors
           }
@@ -922,13 +951,17 @@ base64.b64encode(pdf_bytes).decode('ascii')
           const arrayBuffer = await file.arrayBuffer();
           const pdfData = new Uint8Array(arrayBuffer);
 
-          pyodide.FS.writeFile('/input.pdf', pdfData);
+          // Use unique file names to avoid race conditions during concurrent processing
+          const uid = `${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+          const inputPath = `/input_ocg_rename_${uid}.pdf`;
+
+          pyodide.FS.writeFile(inputPath, pdfData);
 
           const result = await pyodide.runPythonAsync(`
 import pymupdf
 import base64
 
-doc = pymupdf.open("/input.pdf")
+doc = pymupdf.open("${inputPath}")
 
 # Note: Renaming OCG requires modifying the OCG object directly
 # This is a simplified implementation
@@ -940,7 +973,7 @@ base64.b64encode(pdf_bytes).decode('ascii')
 `);
 
           try {
-            pyodide.FS.unlink('/input.pdf');
+            pyodide.FS.unlink(inputPath);
           } catch {
             // Ignore cleanup errors
           }
@@ -968,14 +1001,18 @@ base64.b64encode(pdf_bytes).decode('ascii')
           };
           const settings = qualitySettings[quality] || qualitySettings['medium'];
 
-          pyodide.FS.writeFile('/input.pdf', pdfData);
+          // Use unique file names to avoid race conditions during concurrent processing
+          const uid = `${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+          const inputPath = `/input_compress_${uid}.pdf`;
+
+          pyodide.FS.writeFile(inputPath, pdfData);
 
           const result = await pyodide.runPythonAsync(`
 import pymupdf
 import base64
 import io
 
-doc = pymupdf.open("/input.pdf")
+doc = pymupdf.open("${inputPath}")
 image_quality = ${settings.imageQuality}
 max_dpi = ${settings.maxDpi}
 remove_metadata = ${removeMetadata ? 'True' : 'False'}
@@ -1072,7 +1109,7 @@ base64.b64encode(pdf_bytes).decode('ascii')
 `);
 
           try {
-            pyodide.FS.unlink('/input.pdf');
+            pyodide.FS.unlink(inputPath);
           } catch {
             // Ignore cleanup errors
           }
@@ -1091,13 +1128,17 @@ base64.b64encode(pdf_bytes).decode('ascii')
           const pdfData = new Uint8Array(arrayBuffer);
           const { dpi = 150, format = 'jpeg', quality = 85 } = options || {};
 
-          pyodide.FS.writeFile('/input.pdf', pdfData);
+          // Use unique file names to avoid race conditions during concurrent processing
+          const uid = `${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+          const inputPath = `/input_photon_${uid}.pdf`;
+
+          pyodide.FS.writeFile(inputPath, pdfData);
 
           const result = await pyodide.runPythonAsync(`
 import pymupdf
 import base64
 
-doc = pymupdf.open("/input.pdf")
+doc = pymupdf.open("${inputPath}")
 
 # Create a new document
 new_doc = pymupdf.open()
@@ -1138,7 +1179,7 @@ base64.b64encode(pdf_bytes).decode('ascii')
 `);
 
           try {
-            pyodide.FS.unlink('/input.pdf');
+            pyodide.FS.unlink(inputPath);
           } catch {
             // Ignore cleanup errors
           }
