@@ -89,6 +89,11 @@ export function WatermarkTool({ className = '' }: WatermarkToolProps) {
   const [imageOpacity, setImageOpacity] = useState(0.3);
   const [imageAngle, setImageAngle] = useState(0);
 
+  // Repeat/tile watermark options
+  const [repeatWatermark, setRepeatWatermark] = useState(false);
+  const [repeatSpacingX, setRepeatSpacingX] = useState(200);
+  const [repeatSpacingY, setRepeatSpacingY] = useState(150);
+
   const cancelledRef = useRef(false);
 
   const handleFilesSelected = useCallback((files: File[]) => {
@@ -155,6 +160,9 @@ export function WatermarkTool({ className = '' }: WatermarkToolProps) {
           opacity: textOpacity,
           rotation: textAngle,
           pages: 'all',
+          repeat: repeatWatermark,
+          repeatSpacingX,
+          repeatSpacingY,
         };
       } else {
         // Convert image to PNG for better pdf-lib compatibility
@@ -167,6 +175,9 @@ export function WatermarkTool({ className = '' }: WatermarkToolProps) {
           opacity: imageOpacity,
           rotation: imageAngle,
           pages: 'all',
+          repeat: repeatWatermark,
+          repeatSpacingX,
+          repeatSpacingY,
         };
       }
 
@@ -195,7 +206,7 @@ export function WatermarkTool({ className = '' }: WatermarkToolProps) {
         setStatus('error');
       }
     }
-  }, [file, watermarkType, watermarkText, fontSize, textColor, textOpacity, textAngle, imageFile, imageOpacity, imageAngle, tTools]);
+  }, [file, watermarkType, watermarkText, fontSize, textColor, textOpacity, textAngle, imageFile, imageOpacity, imageAngle, repeatWatermark, repeatSpacingX, repeatSpacingY, tTools]);
 
   const formatSize = (bytes: number): string => {
     if (bytes < 1024) return `${bytes} B`;
@@ -423,6 +434,78 @@ export function WatermarkTool({ className = '' }: WatermarkToolProps) {
                       className="w-full"
                       disabled={isProcessing}
                     />
+                  </div>
+                </div>
+              </div>
+            )}
+          </Card>
+
+          {/* Repeat Watermark Options */}
+          <Card variant="outlined" size="lg">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100">
+                {tTools('repeatTitle')}
+              </h3>
+              <label className="flex items-center gap-2 cursor-pointer select-none">
+                <div className="relative inline-flex">
+                  <input
+                    type="checkbox"
+                    className="sr-only"
+                    checked={repeatWatermark}
+                    onChange={(e) => setRepeatWatermark(e.target.checked)}
+                    disabled={isProcessing}
+                  />
+                  <div className={`w-11 h-6 rounded-full transition-colors ${
+                    repeatWatermark ? 'bg-blue-600' : 'bg-gray-300 dark:bg-gray-600'
+                  }`} />
+                  <div className={`absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform ${
+                    repeatWatermark ? 'translate-x-5' : 'translate-x-0'
+                  }`} />
+                </div>
+                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                  {tTools('repeatEnable')}
+                </span>
+              </label>
+            </div>
+
+            {repeatWatermark && (
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">
+                    {tTools('repeatSpacingX')}: {repeatSpacingX}pt
+                  </label>
+                  <input
+                    type="range"
+                    value={repeatSpacingX}
+                    onChange={(e) => setRepeatSpacingX(parseInt(e.target.value))}
+                    min={20}
+                    max={600}
+                    step={10}
+                    className="w-full"
+                    disabled={isProcessing}
+                  />
+                  <div className="flex justify-between text-xs text-gray-400 mt-0.5">
+                    <span>20pt</span>
+                    <span>600pt</span>
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">
+                    {tTools('repeatSpacingY')}: {repeatSpacingY}pt
+                  </label>
+                  <input
+                    type="range"
+                    value={repeatSpacingY}
+                    onChange={(e) => setRepeatSpacingY(parseInt(e.target.value))}
+                    min={20}
+                    max={600}
+                    step={10}
+                    className="w-full"
+                    disabled={isProcessing}
+                  />
+                  <div className="flex justify-between text-xs text-gray-400 mt-0.5">
+                    <span>20pt</span>
+                    <span>600pt</span>
                   </div>
                 </div>
               </div>

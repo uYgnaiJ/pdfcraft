@@ -1483,7 +1483,11 @@
       "unsupportedImage": "不支持的图片格式，请使用 PNG 或 JPG。",
       "failed": "添加水印失败。",
       "addButton": "添加水印",
-      "successMessage": "水印添加成功！"
+      "successMessage": "水印添加成功！",
+      "repeatTitle": "重复水印",
+      "repeatEnable": "在整页平铺水印",
+      "repeatSpacingX": "水平间距",
+      "repeatSpacingY": "垂直间距"
     },
     "invertColors": {
       "uploadLabel": "上传PDF文件",

@@ -13,10 +13,10 @@ export const PDFJS_CONFIG = {
   // Worker source path - loaded from public directory
   workerSrc: '/workers/pdf.worker.min.mjs',
   // CMap URL for character mapping
-  cMapUrl: '/pdfjs/cmaps/',
+  cMapUrl: '/pdfjs-viewer/cmaps/',
   cMapPacked: true,
   // Standard fonts URL
-  standardFontDataUrl: '/pdfjs/standard_fonts/',
+  standardFontDataUrl: '/pdfjs-viewer/standard_fonts/',
 } as const;
 
 /**

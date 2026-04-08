@@ -1685,7 +1685,11 @@
       "unsupportedImage": "Formato immagine non supportato. Usa PNG o JPG.",
       "failed": "Impossibile aggiungere la filigrana.",
       "addButton": "Aggiungi filigrana",
-      "successMessage": "Filigrana aggiunta con successo!"
+      "successMessage": "Filigrana aggiunta con successo!",
+      "repeatTitle": "Ripeti filigrana",
+      "repeatEnable": "Ripeti la filigrana su tutta la pagina",
+      "repeatSpacingX": "Spaziatura orizzontale",
+      "repeatSpacingY": "Spaziatura verticale"
     },
     "headerFooter": {
       "uploadLabel": "Carica file PDF",

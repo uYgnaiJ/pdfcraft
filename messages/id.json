@@ -1014,7 +1014,11 @@
       "unsupportedImage": "Format gambar tidak didukung. Silakan gunakan PNG atau JPG.",
       "failed": "Gagal menambahkan watermark.",
       "addButton": "Tambah Watermark",
-      "successMessage": "Watermark berhasil ditambahkan!"
+      "successMessage": "Watermark berhasil ditambahkan!",
+      "repeatTitle": "Ulangi Watermark",
+      "repeatEnable": "Ulangi watermark di seluruh halaman",
+      "repeatSpacingX": "Jarak Horizontal",
+      "repeatSpacingY": "Jarak Vertikal"
     },
     "headerFooter": {
       "uploadLabel": "Unggah File PDF",

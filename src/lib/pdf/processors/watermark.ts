@@ -9,6 +9,8 @@ import type { ProcessInput, ProcessOutput, ProgressCallback } from '@/types/pdf'
 import { PDFErrorCode } from '@/types/pdf';
 import { BasePDFProcessor } from '../processor';
 import { loadPdfLib } from '../loader';
+import type { PDFPage, PDFFont, PDFImage } from 'pdf-lib';
+
 
 export interface WatermarkOptions {
   type: 'text' | 'image';
@@ -21,6 +23,12 @@ export interface WatermarkOptions {
   fontSize?: number;
   color?: { r: number; g: number; b: number };
   pages?: number[] | 'all' | 'odd' | 'even';
+  /** If true, tile the watermark across the entire page */
+  repeat?: boolean;
+  /** Horizontal spacing between repeated watermarks (points) */
+  repeatSpacingX?: number;
+  /** Vertical spacing between repeated watermarks (points) */
+  repeatSpacingY?: number;
 }
 
 // Noto fonts for CJK support
@@ -131,6 +139,9 @@ export class WatermarkProcessor extends BasePDFProcessor {
       fontSize: inputOptions.fontSize ?? 48,
       color: inputOptions.color ?? { r: 0.5, g: 0.5, b: 0.5 },
       pages: inputOptions.pages ?? 'all',
+      repeat: inputOptions.repeat ?? false,
+      repeatSpacingX: inputOptions.repeatSpacingX ?? 200,
+      repeatSpacingY: inputOptions.repeatSpacingY ?? 150,
     };
 
     if (files.length !== 1) {
@@ -198,58 +209,68 @@ export class WatermarkProcessor extends BasePDFProcessor {
           const fontSize = wmOptions.fontSize || 48;
           const textWidth = font.widthOfTextAtSize(text, fontSize);
           const textHeight = font.heightAtSize(fontSize);
-
-          let x = 0, y = 0;
           const rotation = wmOptions.position === 'diagonal' ? -45 : (wmOptions.rotation || 0);
 
-          switch (wmOptions.position) {
-            case 'top-left':
-              x = 50; y = height - 50;
-              break;
-            case 'top-right':
-              x = width - textWidth - 50; y = height - 50;
-              break;
-            case 'bottom-left':
-              x = 50; y = 50;
-              break;
-            case 'bottom-right':
-              x = width - textWidth - 50; y = 50;
-              break;
-            case 'center':
-              const position = computeTextWatermarkPosition(width, height, textWidth, textHeight, rotation)
-              x = position.x;
-              y = position.y;
-              break;
-            case 'diagonal':
-            default:
-              x = width / 2; y = height / 2;
-          }
+          if (wmOptions.repeat) {
+            // Tile the text watermark across the entire page
+            tileTextWatermark(page, pdfLib, text, font, fontSize, rotation, wmOptions, width, height, textWidth, textHeight);
+          } else {
+            let x = 0, y = 0;
 
-          page.drawText(text, {
-            x,
-            y,
-            size: fontSize,
-            font,
-            color: pdfLib.rgb(wmOptions.color?.r || 0.5, wmOptions.color?.g || 0.5, wmOptions.color?.b || 0.5),
-            opacity: wmOptions.opacity || 0.3,
-            rotate: pdfLib.degrees(rotation),
-          });
+            switch (wmOptions.position) {
+              case 'top-left':
+                x = 50; y = height - 50;
+                break;
+              case 'top-right':
+                x = width - textWidth - 50; y = height - 50;
+                break;
+              case 'bottom-left':
+                x = 50; y = 50;
+                break;
+              case 'bottom-right':
+                x = width - textWidth - 50; y = 50;
+                break;
+              case 'center':
+                const position = computeTextWatermarkPosition(width, height, textWidth, textHeight, rotation);
+                x = position.x;
+                y = position.y;
+                break;
+              case 'diagonal':
+              default:
+                x = width / 2; y = height / 2;
+            }
+
+            page.drawText(text, {
+              x,
+              y,
+              size: fontSize,
+              font,
+              color: pdfLib.rgb(wmOptions.color?.r || 0.5, wmOptions.color?.g || 0.5, wmOptions.color?.b || 0.5),
+              opacity: wmOptions.opacity || 0.3,
+              rotate: pdfLib.degrees(rotation),
+            });
+          }
         } else if (wmOptions.type === 'image' && embeddedImage) {
           const scale = 0.5;
           const imgWidth = embeddedImage.width * scale;
           const imgHeight = embeddedImage.height * scale;
 
-          const x = (width - imgWidth) / 2;
-          const y = (height - imgHeight) / 2;
+          if (wmOptions.repeat) {
+            // Tile the image watermark across the entire page
+            tileImageWatermark(page, pdfLib, embeddedImage, imgWidth, imgHeight, wmOptions, width, height);
+          } else {
+            const x = (width - imgWidth) / 2;
+            const y = (height - imgHeight) / 2;
 
-          page.drawImage(embeddedImage, {
-            x,
-            y,
-            width: imgWidth,
-            height: imgHeight,
-            opacity: wmOptions.opacity || 0.3,
-            rotate: pdfLib.degrees(wmOptions.rotation || 0),
-          });
+            page.drawImage(embeddedImage, {
+              x,
+              y,
+              width: imgWidth,
+              height: imgHeight,
+              opacity: wmOptions.opacity || 0.3,
+              rotate: pdfLib.degrees(wmOptions.rotation || 0),
+            });
+          }
         }
 
         this.updateProgress(30 + (60 * (i + 1) / pagesToProcess.length), `Processing page ${pageIndex + 1}...`);
@@ -322,6 +343,85 @@ function computeTextWatermarkPosition(
     x: rotatedOriginX,
     y: rotatedOriginY,
   };
+}
+
+/**
+ * Tile a text watermark across the entire page in a grid pattern.
+ */
+function tileTextWatermark(
+  page: PDFPage,
+  pdfLib: Awaited<ReturnType<typeof loadPdfLib>>,
+  text: string,
+  font: PDFFont,
+  fontSize: number,
+  rotation: number,
+  wmOptions: WatermarkOptions,
+  pageWidth: number,
+  pageHeight: number,
+  textWidth: number,
+  textHeight: number
+): void {
+  const spacingX = wmOptions.repeatSpacingX ?? 200;
+  const spacingY = wmOptions.repeatSpacingY ?? 150;
+  const stepX = textWidth + spacingX;
+  const stepY = textHeight + spacingY;
+  // Extend the tiling area beyond page bounds to cover rotated watermarks
+  const margin = Math.max(pageWidth, pageHeight);
+  const startX = -margin;
+  const startY = -margin;
+  const endX = pageWidth + margin;
+  const endY = pageHeight + margin;
+
+  for (let y = startY; y < endY; y += stepY) {
+    for (let x = startX; x < endX; x += stepX) {
+      page.drawText(text, {
+        x,
+        y,
+        size: fontSize,
+        font,
+        color: pdfLib.rgb(wmOptions.color?.r || 0.5, wmOptions.color?.g || 0.5, wmOptions.color?.b || 0.5),
+        opacity: wmOptions.opacity || 0.3,
+        rotate: pdfLib.degrees(rotation),
+      });
+    }
+  }
+}
+
+/**
+ * Tile an image watermark across the entire page in a grid pattern.
+ */
+function tileImageWatermark(
+  page: PDFPage,
+  pdfLib: Awaited<ReturnType<typeof loadPdfLib>>,
+  embeddedImage: PDFImage,
+  imgWidth: number,
+  imgHeight: number,
+  wmOptions: WatermarkOptions,
+  pageWidth: number,
+  pageHeight: number
+): void {
+  const spacingX = wmOptions.repeatSpacingX ?? 200;
+  const spacingY = wmOptions.repeatSpacingY ?? 150;
+  const stepX = imgWidth + spacingX;
+  const stepY = imgHeight + spacingY;
+  const margin = Math.max(pageWidth, pageHeight);
+  const startX = -margin;
+  const startY = -margin;
+  const endX = pageWidth + margin;
+  const endY = pageHeight + margin;
+
+  for (let y = startY; y < endY; y += stepY) {
+    for (let x = startX; x < endX; x += stepX) {
+      page.drawImage(embeddedImage, {
+        x,
+        y,
+        width: imgWidth,
+        height: imgHeight,
+        opacity: wmOptions.opacity || 0.3,
+        rotate: pdfLib.degrees(wmOptions.rotation || 0),
+      });
+    }
+  }
 }
 
 export function createWatermarkProcessor(): WatermarkProcessor {

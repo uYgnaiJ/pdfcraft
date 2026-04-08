@@ -19,6 +19,7 @@ import type {
 import { PDFErrorCode } from '@/types/pdf';
 import { BasePDFProcessor } from '../processor';
 import { loadPdfLib, loadPdfjs } from '../loader';
+import { PDFJS_CONFIG } from '../config';
 
 /**
  * Grid Combine options
@@ -207,7 +208,12 @@ export class GridCombineProcessor extends BasePDFProcessor {
                 // Load PDF with pdfjs for rendering
                 let pdf: any;
                 try {
-                    pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+                    pdf = await pdfjsLib.getDocument({
+                        data: arrayBuffer,
+                        cMapUrl: PDFJS_CONFIG.cMapUrl,
+                        cMapPacked: PDFJS_CONFIG.cMapPacked,
+                        standardFontDataUrl: PDFJS_CONFIG.standardFontDataUrl,
+                    }).promise;
                 } catch (error) {
                     return this.createErrorOutput(
                         PDFErrorCode.PROCESSING_FAILED,

@@ -1779,7 +1779,11 @@
       "unsupportedImage": "Unsupported image format. Please use PNG or JPG.",
       "failed": "Failed to add watermark.",
       "addButton": "Add Watermark",
-      "successMessage": "Watermark added successfully!"
+      "successMessage": "Watermark added successfully!",
+      "repeatTitle": "Repeat Watermark",
+      "repeatEnable": "Tile watermark across the entire page",
+      "repeatSpacingX": "Horizontal Spacing",
+      "repeatSpacingY": "Vertical Spacing"
     },
     "headerFooter": {
       "uploadLabel": "Upload PDF File",
