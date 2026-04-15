@@ -14,6 +14,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
+    "postbuild": "node scripts/decompress-wasm.mjs && node scripts/chunk-assets.mjs",
     "postinstall": "node scripts/sync-pdfjs-workers.js"
   },
   "dependencies": {

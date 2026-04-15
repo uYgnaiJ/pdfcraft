@@ -27,6 +27,7 @@
  */
 
 import { WorkerBrowserConverter } from '@matbee/libreoffice-converter/browser';
+import { fetchAssembledBlob } from '../utils/asset-loader';
 
 const LIBREOFFICE_PATH = '/libreoffice-wasm/';
 const ASSET_VERSION = '20240212-3';
@@ -59,6 +60,8 @@ export class LibreOfficeConverter {
     private totalAssetSizeMB = 0;
     /** Replaceable progress callback — allows late-binding when preload started without one */
     private progressCallback?: ProgressCallback;
+    /** Track Blob URLs for cleanup */
+    private blobUrls: string[] = [];
 
     constructor(basePath?: string) {
         this.basePath = normalizeBasePath(basePath || LIBREOFFICE_PATH);
@@ -113,12 +116,29 @@ export class LibreOfficeConverter {
                 : '';
             this.progressCallback?.({ phase: 'loading', percent: 5, message: `Loading conversion engine${totalInfo}...` });
 
+            // Fetch and reassemble assets (handles chunking on Cloudflare Pages)
+            const [sofficeJsBlob, sofficeWasmBlob, sofficeDataBlob, sofficeWorkerJsBlob, browserWorkerJsBlob] = await Promise.all([
+                fetchAssembledBlob(`${this.basePath}soffice.js?v=${ASSET_VERSION}`),
+                fetchAssembledBlob(`${this.basePath}${SOFFICE_WASM_FILE}?v=${ASSET_VERSION}`),
+                fetchAssembledBlob(`${this.basePath}${SOFFICE_DATA_FILE}?v=${ASSET_VERSION}`),
+                fetchAssembledBlob(`${this.basePath}soffice.worker.js?v=${ASSET_VERSION}`),
+                fetchAssembledBlob(`${this.basePath}browser.worker.global.js?v=${ASSET_VERSION}`),
+            ]);
+
+            const sofficeJsUrl = URL.createObjectURL(sofficeJsBlob);
+            const sofficeWasmUrl = URL.createObjectURL(sofficeWasmBlob);
+            const sofficeDataUrl = URL.createObjectURL(sofficeDataBlob);
+            const sofficeWorkerJsUrl = URL.createObjectURL(sofficeWorkerJsBlob);
+            const browserWorkerJsUrl = URL.createObjectURL(browserWorkerJsBlob);
+
+            this.blobUrls = [sofficeJsUrl, sofficeWasmUrl, sofficeDataUrl, sofficeWorkerJsUrl, browserWorkerJsUrl];
+
             this.converter = new WorkerBrowserConverter({
-                sofficeJs: `${this.basePath}soffice.js?v=${ASSET_VERSION}`,
-                sofficeWasm: `${this.basePath}${SOFFICE_WASM_FILE}?v=${ASSET_VERSION}`,
-                sofficeData: `${this.basePath}${SOFFICE_DATA_FILE}?v=${ASSET_VERSION}`,
-                sofficeWorkerJs: `${this.basePath}soffice.worker.js?v=${ASSET_VERSION}`,
-                browserWorkerJs: `${this.basePath}browser.worker.global.js?v=${ASSET_VERSION}`,
+                sofficeJs: sofficeJsUrl,
+                sofficeWasm: sofficeWasmUrl,
+                sofficeData: sofficeDataUrl,
+                sofficeWorkerJs: sofficeWorkerJsUrl,
+                browserWorkerJs: browserWorkerJsUrl,
                 verbose: false,
                 onProgress: (info: { phase: string; percent: number; message: string }) => {
                     // Use this.progressCallback so a late-arriving callback from the UI gets picked up
@@ -206,12 +226,25 @@ export class LibreOfficeConverter {
             const url = `${this.basePath}${file}?v=${ASSET_VERSION}`;
             try {
                 const start = performance.now();
-                const res = await fetch(url, { method: 'HEAD' });
+                // Check for the file itself or its chunk manifest
+                let res = await fetch(url, { method: 'HEAD' });
+                
+                if (!res.ok) {
+                    const manifestUrl = `${this.basePath}${file}.manifest.json?v=${ASSET_VERSION}`;
+                    const mRes = await fetch(manifestUrl, { method: 'HEAD' });
+                    if (mRes.ok) {
+                        res = mRes;
+                        console.warn(`[LibreOffice] ${file}: Found chunk manifest instead of raw file.`);
+                    }
+                }
+
                 const duration = Math.round(performance.now() - start);
 
                 if (res.ok) {
                     const size = res.headers.get('content-length');
                     const type = res.headers.get('content-type');
+                    // Note: manifest size is small, so totalAssetSizeMB will be undercounted 
+                    // if files are chunked, but that's acceptable for an environment check.
                     const sizeNum = size ? parseInt(size) : 0;
                     if (sizeNum > 0) totalBytes += sizeNum;
                     const sizeMb = sizeNum > 0 ? (sizeNum / 1024 / 1024).toFixed(2) + 'MB' : 'unknown size';
@@ -298,6 +331,11 @@ export class LibreOfficeConverter {
         if (this.converter) {
             await this.converter.destroy();
         }
+        
+        // Revoke Blob URLs to release memory
+        this.blobUrls.forEach(url => URL.revokeObjectURL(url));
+        this.blobUrls = [];
+        
         this.converter = null;
         this.initialized = false;
     }

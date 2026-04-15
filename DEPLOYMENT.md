@@ -89,6 +89,8 @@ The `.github/workflows/deploy.yml` workflow handles automatic deployment.
 
 ### 4. Cloudflare Pages
 
+PDFCraft uses a custom asset chunking mechanism to bypass the 25 MiB file size limit on Cloudflare Pages. Large LibreOffice WASM files are automatically split into ~20MB chunks during the build process and reassembled on the client side.
+
 **Automatic Deployment:**
 1. Connect repository in [Cloudflare Pages](https://pages.cloudflare.com)
 2. Build settings:
